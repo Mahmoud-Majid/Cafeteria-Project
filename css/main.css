@@ -1,0 +1,7 @@
+body { 
+    padding-top: 70px; 
+    background-image: url("../images/background.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: rgb(100, 69, 28);
+}
