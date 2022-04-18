@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: roboto, sans-serif;
+  margin: 0px;
+  background-image: url(../images/background.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.table-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 15px;
+  height: 100%;
+}
+
+.table-title div {
+  font-size: 2.2rem;
+  font-family: roboto, sans-serif;
+  font-weight: 900;
+  color: midnightblue;
+}
+.table-title button {
+  height: 40px;
+  cursor: pointer;
+  background-color: midnightblue;
+  color: palegoldenrod;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.table-title button:hover {
+  background-color: rgb(57, 97, 231);
+}
+#main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 25px;
+}
+
+table {
+  width: 65vw;
+  border: 1px solid #1772ff;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.055),
+    0 3px 15px 0 rgba(0, 0, 0, 0.103);
+  border-collapse: collapse;
+  text-align: center;
+}
+
+tr {
+  background-color: #f2f2f2;
+}
+.table-header {
+  background-color: #1772ff;
+  color: navajowhite;
+  font-size: 1.3rem;
+}
+
+th {
+  height: 30px;
+}
+
+td:first-child {
+  text-align: center;
+}
+
+tr,
+th,
+td {
+  border: 1px solid #1772ff;
+
+  border-collapse: collapse;
+  padding: 5px;
+  text-align: center;
+}
+
+.update-btn {
+  background-color: mediumseagreen;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  margin-left: 10px;
+  cursor: pointer;
+}
+.del-btn {
+  background-color: maroon;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  margin-left: 10px;
+  cursor: pointer;
+}
+p {
+  font-size: 2em;
+  font-weight: bolder;
+}
