@@ -1,0 +1,23 @@
+<html>
+<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+<!-- <link rel="stylesheet" href="../css/adminNav.css" /> -->
+<!-- <link href="https://fonts.googleapis.com/css?family=Odibee+Sans&display=swap" rel="stylesheet"> -->
+
+<div class="nav-bar">
+    <div class="left-nav">
+        <a href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+        <span>|</span>
+        <a href="myorders.php"><i class="fa fa-shopping-cart" aria-hidden="true"></i> Orders</a>
+    </div>
+
+    <div class="right-nav">
+        <!-- <img class="user-pic" src=<?php echo $_SESSION['profile_pic']?> <a><?php echo $_SESSION['name']?></a> -->
+        <img class="user-pic" src='../images/admin.png'> <a><?php echo 'Majid'?></a>
+        <div class=log-out>
+            <div>|</div>
+            <a id="logOut" href="../logout.php"><i class="fa fa-sign-out" aria-hidden="true"></i>Logout</a>
+        </div>
+    </div>
+</div>
+
+</html>
