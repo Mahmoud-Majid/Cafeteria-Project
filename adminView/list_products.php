@@ -1,16 +1,16 @@
 <?php
 
 
-// if (session_status() == PHP_SESSION_NONE) {
-//     session_start();
-// }
-// // If the user is not logged in redirect to the login page...
-// if (!isset($_SESSION['loggedin'])) {
-//     header('Location: ../login.php');
-// }
-// if ($_SESSION['is_admin'] != 1) {
-//     die("Access Denied");
-// }
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+// If the user is not logged in redirect to the login page...
+if (!isset($_SESSION['loggedin'])) {
+    header('Location: ../login.php');
+}
+if ($_SESSION['is_admin'] != 1) {
+    die("Access Denied");
+}
 ?>
 
 
@@ -21,9 +21,6 @@
 <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css">
 <<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-
-
-<!-- ******* -->
 
 <body>
     <link rel="stylesheet" href="../css/adminNav.css" />
