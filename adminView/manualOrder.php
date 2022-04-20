@@ -1,13 +1,13 @@
 <?php 
 
 session_start();
-// If the user is not logged in redirect to the login page...
-// if (!isset($_SESSION['loggedin'])) {
-//     header('Location: ../login.php');
-// }
-// if ($_SESSION['is_admin']!=1){
-//     die ("Access Denied");
-// }
+
+if (!isset($_SESSION['loggedin'])) {
+    header('Location: ../login.php');
+}
+if ($_SESSION['is_admin']!=1){
+    die ("Access Denied");
+}
 
 ?>
 
@@ -30,12 +30,10 @@ session_start();
 <body>
     <?php include('../navbars/adminNav.html') ?>
 
-    <!-- ********************* -->
     <div class="main">
         <form action="addOrderToUser.php" method="POST" id="form" class="order-data">
 
             <?php
-
                 echo"<div class='select-user'>
                 <div class='user-title'>Add To User: </div>           
                 <select name='user' id='user'>";
@@ -45,8 +43,7 @@ session_start();
                 }
 
                 echo"</select>
-                </div> ";
-            
+                </div> ";    
             ?>
             <div class="order">
 
@@ -84,7 +81,6 @@ session_start();
             //select user
             $query = "SELECT user_id,username FROM `user`";
             $stmt = $db->query($query);
-            // $res = $stmt->setFetchMode(PDO::FETCH_ASSOC);
             echo"<div class='select-user'>
             <div class='user-title'>Add To User: </div>           
             <select name='user' id='user'>";
@@ -96,11 +92,8 @@ session_start();
             echo"</select>
             </div> ";
             //show all products
-
             $query = "SELECT product_id,name,price,pic FROM product";
             $stmt = $db->query($query);
-
-            // $res = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
             ?>
 

@@ -4,14 +4,16 @@ let orderList = document.getElementById("list")
 for (const item of items) {
 
     item.addEventListener("click", function (e) {
-        let { name, price, id } = e.target.dataset;
-        console.log(name, price, id);
+        let {
+            name,
+            price,
+            id
+        } = e.target.dataset;
         price = parseInt(price);
 
 
-        let elementExist = document.getElementById(`${name}_element`);
+        let elementExist = document.getElementById(`${id}`);
         let total = document.getElementById("total");
-        // total.appendChild(hr);
         if (elementExist) {
             return;
         }
@@ -19,7 +21,7 @@ for (const item of items) {
         let div = document.createElement("div");
         let hr = document.createElement('hr');
         div.setAttribute("class", "list_element");
-        div.setAttribute("id", `${name}_element`);
+        div.setAttribute("id", `${id}`);
 
         let span = document.createElement("div");
         span.innerText = `${name}`;
@@ -100,37 +102,6 @@ const totalOrderPrice = function () {
 const form = document.getElementById("form");
 let userId = document.getElementById("user");
 
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    let reqData = "";
-    const formData = new FormData(form);
-    for (const [name, value] of formData.entries()) {
-        reqData += `${name}=${value}&`
-    }
-
-    reqData += `user=${user.value}`;
-
-    fetch('/myCafe/adminPages/adminInsertOrder.php', {
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-        },
-        body: reqData,
-    })
-        .then(res => res.json())
-        .then((res) => {
-            if (res == "success") {
-                alert("Order Added Successfuly");
-                orderList.innerHTML = "<div>Order</div>";
-            }
-            else {
-                alert("Order is empty");
-            }
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-})
 
 //search
 let searchfield = document.getElementById("search");

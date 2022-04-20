@@ -5,10 +5,14 @@ for (const item of items) {
 
     item.addEventListener("click", function (e) {
         let orderList = document.getElementById("list")
-        let { name, price, id } = e.target.dataset;
+        let {
+            name,
+            price,
+            id
+        } = e.target.dataset;
         price = parseInt(price);
 
-        let elementExist = document.getElementById(`${name}_element`);
+        let elementExist = document.getElementById(`${id}`);
         let total = document.getElementById("total");
 
         if (elementExist) {
@@ -17,7 +21,7 @@ for (const item of items) {
 
         let div = document.createElement("div");
         div.setAttribute("class", "list_element");
-        div.setAttribute("id", `${name}_element`);
+        div.setAttribute("id", `${id}`);
 
         let span = document.createElement("div");
         span.innerText = `${name}`;
@@ -45,7 +49,7 @@ for (const item of items) {
 
         let elementPrice = document.createElement("span");
 
-        elementPrice.innerText = `${price} L.E`
+        elementPrice.innerText = `${price}$`
         elementPrice.setAttribute("class", "elementPrice");
         div.appendChild(elementPrice);
 
@@ -55,7 +59,7 @@ for (const item of items) {
         deleteBtn.setAttribute("class", "deleteBtn");
         deleteBtn.addEventListener("click", function () {
             orderList.removeChild(div);
-            total.innerText = totalOrderPrice()+" L.E";
+            total.innerText = totalOrderPrice() + "$";
         })
         div.appendChild(deleteBtn);
         orderList.appendChild(div);
@@ -65,22 +69,22 @@ for (const item of items) {
             count = count < 1 ? 1 : count;
             quantity.value = count;
             let itemPrice = price * parseInt(quantity.value);
-            elementPrice.innerText = itemPrice+" L.E";
+            elementPrice.innerText = itemPrice + "$";
 
-            total.innerText = "Total: " + totalOrderPrice()+" L.E";
+            total.innerText = "Total: " + totalOrderPrice() + "$";
         })
 
         plusBtn.addEventListener("click", () => {
             let count = parseInt(quantity.value) + 1;
             quantity.value = count;
             let itemPrice = price * parseInt(quantity.value);
-            elementPrice.innerText = itemPrice+" L.E";
+            elementPrice.innerText = itemPrice + "$";
 
-            total.innerText = "Total: " + totalOrderPrice()+" L.E";
+            total.innerText = "Total: " + totalOrderPrice() + "$";
 
         })
 
-        total.innerText = "Total: " + totalOrderPrice()+" L.E";
+        total.innerText = "Total: " + totalOrderPrice() + "$";
     })
 }
 
@@ -112,33 +116,3 @@ searchfield.addEventListener("keyup", (e) => {
 })
 
 const form = document.getElementById("form");
-
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
-    let reqData = "";
-    const formData = new FormData(form);
-    for (const [name, value] of formData.entries()) {
-        reqData += `${name}=${value}&`
-    }
-    fetch('/CafeteriaSystem/userPages/insertOrder.php', {
-        method: 'POST',
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
-        },
-        body: reqData,
-    })
-        .then(res => res.json())
-        .then((res) => {
-            if (res == "success") {
-                location.reload();
-                alert("Order Added Successfuly");
-                orderList.innerHTML = "<div>Order</div>";
-            }
-            else {
-                alert("Order is empty");
-            }
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-})
