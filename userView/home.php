@@ -1,11 +1,17 @@
 <?php
+
 // session_start();
+
 // if (!isset($_SESSION['loggedin'])) {
 //     header('Location: ../login.php');
 // }
 // if ($_SESSION['is_admin']==1){
 //     die ("Access Denied");
 // }
+
+// default value for testing
+
+$_SESSION['id'] = 5;
 
 ?>
 
@@ -16,10 +22,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/home.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- <link rel="stylesheet" href="../css/home.css" /> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../css/adminNav.css" />
 
+
+    <title>Home</title>
     <style>
     * {
         box-sizing: border-box;
@@ -35,16 +46,14 @@
         display: flex;
         flex-direction: column;
         font-family: Arial, Helvetica, sans-serif;
-        background-image: url(../images/background.jpeg);
-        background-repeat: no-repeat;
-        background-size: cover;
+        background: rgb(181 200 208 / 70%);
+
     }
 
     .nav-bar {
         margin: 0px;
         display: flex;
-
-        background-color: rgb(211 225 189);
+        background-color: black;
         padding: 10px;
         text-align: center;
         font-size: 20px;
@@ -111,33 +120,25 @@
 
     #search {
         margin-right: 20px;
+        background: rgb(231 235 236);
+        border: 1px solid #b4b4cb;
     }
 
 
-    .latest-order {
+    .select-user {
         display: flex;
         align-items: center;
-
+        justify-content: center;
         padding-top: 8px;
-        background-color: rgb(184 220 130 / 39%);
+        height: 5rem;
+        background-color: rgb(231, 224, 224);
     }
 
-    .all-items {
-        display: flex;
-        align-items: center;
-        justify-content: space-evenly;
-        width: 100%;
-        padding-bottom: 15px;
-
-    }
-
-    .latestOrder-title {
+    .user-title {
         margin-right: 15px;
         font-size: 1.5rem;
         font-weight: bold;
         color: midnightblue;
-        flex-basis: 20%;
-        text-align: center;
 
     }
 
@@ -162,6 +163,8 @@
 
     .item-img {
         width: 75px;
+        height: 75px;
+        border-radius: 15px;
     }
 
     .products-list {
@@ -174,7 +177,7 @@
 
     }
 
-    .products-list-title {
+    .produts-list-title {
         margin: 5px;
         margin-bottom: 20px;
         font-size: 20px;
@@ -182,11 +185,16 @@
 
     .items-list {
         display: flex;
-        width: 100%;
+        width: 50%;
         justify-content: space-evenly;
     }
 
     .item {
+        border: solid 2px #716ec363;
+        border-radius: 15px;
+        box-shadow: 0 2.8px 2.2px rgb(0 0 0 / 3%), 0 6.7px 5.3px rgb(0 0 0 / 5%), 0 12.5px 10px rgb(0 0 0 / 6%), 0 22.3px 17.9px rgb(0 0 0 / 7%), 0 41.8px 33.4px rgb(0 0 0 / 9%), 0 100px 80px rgb(0 0 0 / 12%);
+        background: rgb(53 149 189 / 18%);
+
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -210,7 +218,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        /* background-color: rgb(231, 224, 224); */
+        background-color: rgb(231, 224, 224);
 
     }
 
@@ -273,7 +281,7 @@
         text-align: center;
         padding: 0;
         font-weight: bolder;
-        /* background-color: rgb(228, 67, 67); */
+        background-color: rgb(228, 67, 67);
         color: bisque;
 
     }
@@ -306,7 +314,6 @@
     }
 
 
-
     #room {
         min-width: 40px;
         width: auto;
@@ -330,15 +337,30 @@
         align-items: center;
         width: 70%;
     }
+
+    .all-items {
+        display: flex;
+    }
+
+    .all-items .order-item {
+        border: solid 2px #716ec363;
+        border-radius: 15px;
+        box-shadow: 0 2.8px 2.2px rgb(0 0 0 / 3%), 0 6.7px 5.3px rgb(0 0 0 / 5%), 0 12.5px 10px rgb(0 0 0 / 6%), 0 22.3px 17.9px rgb(0 0 0 / 7%), 0 41.8px 33.4px rgb(0 0 0 / 9%), 0 100px 80px rgb(0 0 0 / 12%);
+        background: rgb(53 149 189 / 18%);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-evenly;
+    }
     </style>
-    <title>Home</title>
 </head>
 
 <body>
 
-    <?php include('../navbars/userNav.html') ?>
+    <!-- TO DO getting all user info  -->
 
-    </div>
+    <?php include('userNav.html') ?>
 
     <div class="main">
         <form class="order-data" id="form" action="insertOrder.php" method="post">
@@ -368,17 +390,15 @@
             </div>
         </form>
         <div class="product-list-addUser">
-            <!-- <input type="text" name="search" id="search"> -->
             <?php
             include '../pdo.php';
             //latest order
-            // $user_id=$_SESSION['id'];
-            $user_id = 1;
+            $user_id=$_SESSION['id'];
 
             $query="SELECT p.name , o.quantity ,p.pic FROM order_product o,product p WHERE p.product_id=o.product_id AND order_id=(SELECT order_id FROM orders WHERE user_id=$user_id ORDER by date DESC limit 1 )";
             $stmt = $db->query($query);
             $res = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-
+            
             echo "<div class='latest-order'>
             <div class='latestOrder-title'>Latest Order</div>
             <div class='all-items'>";
@@ -387,10 +407,8 @@
                 echo ("<div class='order-item'>
                 <img class='item-img' src={$ele['pic']}  />
                 <div>{$ele['name']}</div>
-                <div>Qty: {$ele['quantity']}</div>
             </div>");
             } 
-            
             echo "</div></div>";
 
             // show all products
@@ -398,9 +416,13 @@
             $stmt = $db->query($query);
 
             $res = $stmt->setFetchMode(PDO::FETCH_ASSOC);
-
-            echo "<div class='search-bar'><input type='text' placeholder='find product' name='search' id='search'></div>";
-           
+            
+            echo "<div class='d-flex'>
+            <input class='form-control me-2 search-bar' type='search' placeholder='Search' aria-label='Search'
+                name='search' id='search'>
+             </div>";
+            echo "<div class='products-list'><div class='products-list-title'>Available Products</div>";
+            // echo "<div class='search-bar'><input type='text' placeholder='find product' name='search' id='search'></div>";
             echo "<div class='items-list'>";
             while ($ele = $stmt->fetch()) {
                 echo ("<div class=item>
@@ -417,7 +439,127 @@
         </div>
     </div>
 
-    <script src="../js/home.js"></script>
+    <script>
+    let items = [...document.getElementsByClassName("product")]
+
+
+    for (const item of items) {
+
+        item.addEventListener("click", function(e) {
+            let orderList = document.getElementById("list")
+            let {
+                name,
+                price,
+                id
+            } = e.target.dataset;
+            price = parseInt(price);
+
+            let elementExist = document.getElementById(`${id}`);
+            let total = document.getElementById("total");
+
+            if (elementExist) {
+                return;
+            }
+
+            let div = document.createElement("div");
+            div.setAttribute("class", "list_element");
+            div.setAttribute("id", `${id}`);
+
+            let span = document.createElement("div");
+            span.innerText = `${name}`;
+            span.setAttribute("class", "item-name");
+            div.appendChild(span);
+            let counterDiv = document.createElement("div");
+            counterDiv.setAttribute("class", "item-input");
+            let minusBtn = document.createElement("button");
+            minusBtn.setAttribute("class", "minus");
+            minusBtn.type = "button";
+            minusBtn.innerText = "-";
+            counterDiv.appendChild(minusBtn);
+            let quantity = document.createElement("input");
+            quantity.setAttribute("name", `quantity[${id}]`);
+            quantity.setAttribute("type", "text");
+            quantity.setAttribute("value", "1");
+            quantity.setAttribute("data-price", `${price}`);
+            counterDiv.appendChild(quantity);
+            let plusBtn = document.createElement("button");
+            plusBtn.type = "button";
+            plusBtn.innerText = "+";
+            plusBtn.setAttribute("class", "plus");
+            counterDiv.appendChild(plusBtn)
+            div.appendChild(counterDiv);
+
+            let elementPrice = document.createElement("span");
+
+            elementPrice.innerText = `${price}$`
+            elementPrice.setAttribute("class", "elementPrice");
+            div.appendChild(elementPrice);
+
+            let deleteBtn = document.createElement("button");
+            deleteBtn.innerText = "X";
+            deleteBtn.type = "button"
+            deleteBtn.setAttribute("class", "deleteBtn");
+            deleteBtn.addEventListener("click", function() {
+                orderList.removeChild(div);
+                total.innerText = totalOrderPrice() + "$";
+            })
+            div.appendChild(deleteBtn);
+            orderList.appendChild(div);
+
+            minusBtn.addEventListener("click", () => {
+                let count = parseInt(quantity.value) - 1;
+                count = count < 1 ? 1 : count;
+                quantity.value = count;
+                let itemPrice = price * parseInt(quantity.value);
+                elementPrice.innerText = itemPrice + "$";
+
+                total.innerText = "Total: " + totalOrderPrice() + "$";
+            })
+
+            plusBtn.addEventListener("click", () => {
+                let count = parseInt(quantity.value) + 1;
+                quantity.value = count;
+                let itemPrice = price * parseInt(quantity.value);
+                elementPrice.innerText = itemPrice + "$";
+
+                total.innerText = "Total: " + totalOrderPrice() + "$";
+
+            })
+
+            total.innerText = "Total: " + totalOrderPrice() + "$";
+        })
+    }
+
+
+    const totalOrderPrice = function() {
+        let eachElementPrice = [...document.getElementsByClassName("elementPrice")];
+        let sum = 0;
+        for (const item of eachElementPrice) {
+            sum += parseInt(item.innerText);
+        }
+
+        return sum;
+    }
+
+    let searchfield = document.getElementById("search");
+
+    searchfield.addEventListener("keyup", (e) => {
+        const searchText = e.target.value;
+
+        [...document.body.getElementsByClassName("item")].forEach(item => {
+
+            if (item.childNodes[1].dataset.name.includes(searchText)) {
+                item.style.display = "block";
+            } else {
+                item.style.display = "none";
+            }
+        })
+
+    })
+
+    const form = document.getElementById("form");
+    </script>
+    <!-- <script src="../js/home.js"></script> -->
 </body>
 
 </html>
