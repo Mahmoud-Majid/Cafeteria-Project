@@ -3,7 +3,20 @@
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
 
+  session_start();
+  if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === TRUE) {
+      if($_SESSION['is_admin']!=1){
+          // header("Location: userPages/home.php");
+          echo "hello in user pages!";
+      }
+      else{
+          header("Location: adminView/add_user.php");
+      }
+  }
 
+    if(isset($_GET['errors'])){
+		$errors = json_decode($_GET['errors']);
+	}
     if(isset($_GET['errors'])){
 		$errors = json_decode($_GET['errors']);
 	}
