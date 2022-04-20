@@ -4,6 +4,8 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
+    session_start();
+    
     require "pdo.php";
 
     $errors = [];
@@ -29,10 +31,10 @@
            $user_hashed_password = $user->password;
         }
         
-        if($username == $user_username && password_verify($password, $user_hashed_password)){
-            echo('hello in users pages!');
-            // header("Location:users.php");
-        }
+        // if($username == $user_username && password_verify($password, $user_hashed_password)){
+        //     echo('hello in users pages!');
+        //     // header("Location:users.php");
+        // }
         if($username != $user_username){
             $errors["username"] = "Wrong username!";
         }
@@ -43,6 +45,21 @@
         if(sizeof($errors)>0){
             $errors = json_encode($errors);
             header("Location:./login.php?errors={$errors}");
+        }else{
+            session_regenerate_id();
+            $_SESSION['loggedin'] = TRUE;
+            $_SESSION['name'] = $user->username;
+            $_SESSION['id'] = $user->user_id;
+            $_SESSION['profile_pic']=$user->profile_pic;
+            $_SESSION['is_admin']=$user->is_admin;
+
+            if($user->is_admin){
+                header('Location: adminView/add_user.php');
+            }
+            else{
+                // header('Location: userPages/home.php');
+                echo "hello in user pages!";
+            }
         }
     
 
