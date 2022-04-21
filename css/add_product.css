@@ -1,0 +1,47 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+* {
+  box-sizing: border-box;
+}
+body {
+  font-family: roboto, sans-serif;
+  margin: 0px;
+  background-image: url(../images/background.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+h1 {
+  color: rgba(0, 119, 255, 0.671);
+  margin-left: 5.5rem;
+  font-weight: bolder;
+}
+
+.form-group {
+  margin-top: 15px;
+}
+
+.form-control,
+.custom-file-input {
+  width: 60%;
+  display: inline-block;
+}
+
+#category,
+#price {
+  width: 40%;
+}
+label {
+  width: 30%;
+  color: rgba(27, 94, 219, 0.753);
+  font-weight: bold;
+}
+
+.btns {
+  margin-left: 6rem;
+}
+
+.error {
+  color: rgb(252, 11, 11);
+  margin-left: 8rem;
+  font-weight: bold;
+}

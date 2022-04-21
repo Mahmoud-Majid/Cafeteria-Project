@@ -1,9 +1,19 @@
 /* forms */
 body{
+<<<<<<< HEAD
     padding-top: 70px;  
 }
 .error{
     color:red;
+=======
+    padding-top: 70px;   
+}
+
+.error{
+    color:red;
+  font-family: 'Niconne', cursive;
+
+>>>>>>> bd699ab67ce68bccce9d10411c5cd5ba548dc4d0
 }
 
 .parent{
@@ -13,8 +23,15 @@ body{
 
 .text-color{
   font-family: 'Niconne', cursive;
+<<<<<<< HEAD
   color: rgb(100, 69, 28);
 }
+=======
+
+  color: rgb(100, 69, 28);
+}
+
+>>>>>>> bd699ab67ce68bccce9d10411c5cd5ba548dc4d0
 .text-size{
   font-size: 20px;
 }
@@ -29,4 +46,8 @@ input[type=number]::-webkit-outer-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+<<<<<<< HEAD
   
+=======
+  
+>>>>>>> bd699ab67ce68bccce9d10411c5cd5ba548dc4d0

@@ -3,10 +3,29 @@
 	ini_set('display_startup_errors', 1);
 	error_reporting(E_ALL);
 
+<<<<<<< HEAD
+=======
+  session_start();
+  if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === TRUE) {
+      if($_SESSION['is_admin']!=1){
+          // header("Location: userPages/home.php");
+          echo "hello in user pages!";
+      }
+      else{
+          header("Location: adminView/add_user.php");
+      }
+  }
+>>>>>>> bd699ab67ce68bccce9d10411c5cd5ba548dc4d0
 
     if(isset($_GET['errors'])){
 		$errors = json_decode($_GET['errors']);
 	}
+<<<<<<< HEAD
+=======
+    if(isset($_GET['errors'])){
+		$errors = json_decode($_GET['errors']);
+	}
+>>>>>>> bd699ab67ce68bccce9d10411c5cd5ba548dc4d0
 
 ?>
 
@@ -45,7 +64,11 @@
 		      <p class="error"><?php if(isset($errors->password)){echo $errors->password;}?></p>	
               <br>
               <div class="text-center">
+<<<<<<< HEAD
             <button type="submit" class="btn btn-warning text-size">Login</button>
+=======
+            <button type="submit" class="btn btn-warning text-size text-color">Login</button>
+>>>>>>> bd699ab67ce68bccce9d10411c5cd5ba548dc4d0
             <br><br>
             <a href="forget_password.php" class="text-color">Forget your password? Reset it.</a>
             </div>
@@ -53,4 +76,8 @@
     </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> bd699ab67ce68bccce9d10411c5cd5ba548dc4d0
