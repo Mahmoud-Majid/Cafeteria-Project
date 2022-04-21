@@ -4,11 +4,8 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
-<<<<<<< HEAD
-=======
     session_start();
     
->>>>>>> bd699ab67ce68bccce9d10411c5cd5ba548dc4d0
     require "pdo.php";
 
     $errors = [];
@@ -34,17 +31,10 @@
            $user_hashed_password = $user->password;
         }
         
-<<<<<<< HEAD
-        if($username == $user_username && password_verify($password, $user_hashed_password)){
-            echo('hello in users pages!');
-            // header("Location:users.php");
-        }
-=======
         // if($username == $user_username && password_verify($password, $user_hashed_password)){
         //     echo('hello in users pages!');
         //     // header("Location:users.php");
         // }
->>>>>>> bd699ab67ce68bccce9d10411c5cd5ba548dc4d0
         if($username != $user_username){
             $errors["username"] = "Wrong username!";
         }
@@ -55,8 +45,6 @@
         if(sizeof($errors)>0){
             $errors = json_encode($errors);
             header("Location:./login.php?errors={$errors}");
-<<<<<<< HEAD
-=======
         }else{
             session_regenerate_id();
             $_SESSION['loggedin'] = TRUE;
@@ -66,21 +54,16 @@
             $_SESSION['is_admin']=$user->is_admin;
 
             if($user->is_admin){
-                header('Location: adminView/add_user.php');
+                header('Location: adminView/adduser.php');
             }
             else{
                 // header('Location: userPages/home.php');
                 echo "hello in user pages!";
             }
->>>>>>> bd699ab67ce68bccce9d10411c5cd5ba548dc4d0
         }
     
 
     }catch (PDOException $e) {
         echo 'Connection failed: ' . $e->getMessage();
     }
-<<<<<<< HEAD
 ?>
-=======
-?>
->>>>>>> bd699ab67ce68bccce9d10411c5cd5ba548dc4d0
