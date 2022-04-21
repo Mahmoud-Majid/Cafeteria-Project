@@ -5,6 +5,17 @@
     border-radius: 50%;
 }
 
+<<<<<<< HEAD
+.logo{
+    position: relative;
+
+
+}
+
+.navbar{
+    background-color: #f0e9e3;
+}
+=======
 
 .bg-black {
      background-color: #856404; 
@@ -65,3 +76,4 @@
 .right{
     float: right;
 }
+>>>>>>> bd699ab67ce68bccce9d10411c5cd5ba548dc4d0
