@@ -1,86 +1,65 @@
 <?php
 
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-<<<<<<< HEAD
-=======
-    session_start();
-    
->>>>>>> bd699ab67ce68bccce9d10411c5cd5ba548dc4d0
-    require "pdo.php";
+session_start();
 
-    $errors = [];
-    $username = $_POST['username'];
-    $password = $_POST['password'];
+require "pdo.php";
 
-    if (empty($username) or $username=="") {
-        $errors["username"] = "Username is required!";
+$errors = [];
+$username = $_POST['username'];
+$password = $_POST['password'];
+
+if (empty($username) or $username == "") {
+    $errors["username"] = "Username is required!";
+}
+if (empty($password) or $password == "") {
+    $errors["password"] = "Password is required!";
+}
+
+try {
+    $select_query = "SELECT * FROM user where `username`=:username";
+    $select_stmt = $db->prepare($select_query);
+    $select_stmt->bindParam(':username', $username);
+    $result = $select_stmt->execute();
+    $row = $select_stmt->fetchAll(PDO::FETCH_OBJ);
+
+    foreach ($row as $user) {
+        $user_username = $user->username;
+        $user_hashed_password = $user->password;
     }
-    if (empty($password) or $password=="") {
-        $errors["password"] = "Password is required!";
+
+    // if($username == $user_username && password_verify($password, $user_hashed_password)){
+    //     echo('hello in users pages!');
+    //     // header("Location:users.php");
+    // }
+    if ($username != $user_username) {
+        $errors["username"] = "Wrong username!";
+    }
+    if (!empty($password) && !password_verify($password, $user_hashed_password)) {
+        $errors["password"] = "Wrong password!";
     }
 
-    try{
-        $select_query = "SELECT * FROM user where `username`=:username";
-        $select_stmt = $db->prepare($select_query);
-        $select_stmt->bindParam(':username', $username);
-        $result = $select_stmt->execute(); 
-        $row = $select_stmt->fetchAll(PDO::FETCH_OBJ);
+    if (sizeof($errors) > 0) {
+        $errors = json_encode($errors);
+        header("Location:./login.php?errors={$errors}");
+    } else {
+        session_regenerate_id();
+        $_SESSION['loggedin'] = TRUE;
+        $_SESSION['name'] = $user->username;
+        $_SESSION['id'] = $user->user_id;
+        $_SESSION['profile_pic'] = $user->profile_pic;
+        $_SESSION['is_admin'] = $user->is_admin;
 
-        foreach ($row as $user) {
-           $user_username = $user->username;
-           $user_hashed_password = $user->password;
+        if ($user->is_admin) {
+            header('Location: adminView/adduser.php');
+        } else {
+            // header('Location: userPages/home.php');
+            echo "hello in user pages!";
         }
-        
-<<<<<<< HEAD
-        if($username == $user_username && password_verify($password, $user_hashed_password)){
-            echo('hello in users pages!');
-            // header("Location:users.php");
-        }
-=======
-        // if($username == $user_username && password_verify($password, $user_hashed_password)){
-        //     echo('hello in users pages!');
-        //     // header("Location:users.php");
-        // }
->>>>>>> bd699ab67ce68bccce9d10411c5cd5ba548dc4d0
-        if($username != $user_username){
-            $errors["username"] = "Wrong username!";
-        }
-        if(!empty($password) && !password_verify($password, $user_hashed_password)){
-            $errors["password"] = "Wrong password!";
-        }
-
-        if(sizeof($errors)>0){
-            $errors = json_encode($errors);
-            header("Location:./login.php?errors={$errors}");
-<<<<<<< HEAD
-=======
-        }else{
-            session_regenerate_id();
-            $_SESSION['loggedin'] = TRUE;
-            $_SESSION['name'] = $user->username;
-            $_SESSION['id'] = $user->user_id;
-            $_SESSION['profile_pic']=$user->profile_pic;
-            $_SESSION['is_admin']=$user->is_admin;
-
-            if($user->is_admin){
-                header('Location: adminView/add_user.php');
-            }
-            else{
-                // header('Location: userPages/home.php');
-                echo "hello in user pages!";
-            }
->>>>>>> bd699ab67ce68bccce9d10411c5cd5ba548dc4d0
-        }
-    
-
-    }catch (PDOException $e) {
-        echo 'Connection failed: ' . $e->getMessage();
     }
-<<<<<<< HEAD
-?>
-=======
-?>
->>>>>>> bd699ab67ce68bccce9d10411c5cd5ba548dc4d0
+} catch (PDOException $e) {
+    echo 'Connection failed: ' . $e->getMessage();
+}

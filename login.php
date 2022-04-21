@@ -1,83 +1,77 @@
 <?php
-	ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
-	error_reporting(E_ALL);
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
 
-<<<<<<< HEAD
-=======
-  session_start();
-  if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === TRUE) {
-      if($_SESSION['is_admin']!=1){
-          // header("Location: userPages/home.php");
-          echo "hello in user pages!";
-      }
-      else{
-          header("Location: adminView/add_user.php");
-      }
+session_start();
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === TRUE) {
+  if ($_SESSION['is_admin'] != 1) {
+    // header("Location: userPages/home.php");
+    echo "hello in user pages!";
+  } else {
+    header("Location: adminView/add_user.php");
   }
->>>>>>> bd699ab67ce68bccce9d10411c5cd5ba548dc4d0
+}
 
-    if(isset($_GET['errors'])){
-		$errors = json_decode($_GET['errors']);
-	}
-<<<<<<< HEAD
-=======
-    if(isset($_GET['errors'])){
-		$errors = json_decode($_GET['errors']);
-	}
->>>>>>> bd699ab67ce68bccce9d10411c5cd5ba548dc4d0
+if (isset($_GET['errors'])) {
+  $errors = json_decode($_GET['errors']);
+}
+if (isset($_GET['errors'])) {
+  $errors = json_decode($_GET['errors']);
+}
 
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/main.css">  
-    <link rel="stylesheet" href="css/form.css">   
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Niconne&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <style>
 
-    </style>
-    <title>Login</title>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/form.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Niconne&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <style>
+
+  </style>
+  <title>Login</title>
 </head>
+
 <body>
-    <div class="alert alert-warning parent" style="width: 30%;">
-        <h1 class="text-center"><img src="./images/logo.png" alt="logo" class="logo" width="100px" height="100px" /></h1>
-        <h1 class="text-center text-color">Java Cafe</h1>
-        <form action="login_validation.php" method="post" enctype="multipart/form-data">
-            
-            <div class="form-group">
-              <label for="username" class="text-color text-size">Username</label>
-              <input type="text" name="username" class="form-control" id="username" placeholder="Enter Username" value="<?php if(isset(($old)->username)) {echo $old->username;}?>">
-		      <p class="error"><?php if(isset($errors->username)){echo $errors->username;}?></p>	
-            </div>
-            <div class="form-group">
-              <label for="password" class="text-color text-size">Password</label>
-              <input type="password" name="password" class="form-control" id="password" placeholder="Enter Password">
-		      <p class="error"><?php if(isset($errors->password)){echo $errors->password;}?></p>	
-              <br>
-              <div class="text-center">
-<<<<<<< HEAD
-            <button type="submit" class="btn btn-warning text-size">Login</button>
-=======
-            <button type="submit" class="btn btn-warning text-size text-color">Login</button>
->>>>>>> bd699ab67ce68bccce9d10411c5cd5ba548dc4d0
-            <br><br>
-            <a href="forget_password.php" class="text-color">Forget your password? Reset it.</a>
-            </div>
-          </form>
-    </div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
+  <div class="alert alert-warning parent" style="width: 30%;">
+    <h1 class="text-center"><img src="./images/logo.png" alt="logo" class="logo" width="100px" height="100px" /></h1>
+    <h1 class="text-center text-color">Java Cafe</h1>
+    <form action="login_validation.php" method="post" enctype="multipart/form-data">
+
+      <div class="form-group">
+        <label for="username" class="text-color text-size">Username</label>
+        <input type="text" name="username" class="form-control" id="username" placeholder="Enter Username" value="<?php if (isset(($old)->username)) {
+                                                                                                                    echo $old->username;
+                                                                                                                  } ?>">
+        <p class="error"><?php if (isset($errors->username)) {
+                            echo $errors->username;
+                          } ?></p>
+      </div>
+      <div class="form-group">
+        <label for="password" class="text-color text-size">Password</label>
+        <input type="password" name="password" class="form-control" id="password" placeholder="Enter Password">
+        <p class="error"><?php if (isset($errors->password)) {
+                            echo $errors->password;
+                          } ?></p>
+        <br>
+        <div class="text-center">
+          <button type="submit" class="btn btn-warning text-size text-color">Login</button>
+          <br><br>
+          <a href="forget_password.php" class="text-color">Forget your password? Reset it.</a>
+        </div>
+    </form>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
-<<<<<<< HEAD
+
 </html>
-=======
-</html>
->>>>>>> bd699ab67ce68bccce9d10411c5cd5ba548dc4d0
