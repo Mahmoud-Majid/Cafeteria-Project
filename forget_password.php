@@ -4,9 +4,15 @@
 	error_reporting(E_ALL);
 
 
-    if(isset($_GET['errors'])){
+  if(isset($_GET['errors'])){
 		$errors = json_decode($_GET['errors']);
 	}
+  if(isset($_GET['status'])){
+		$status = json_decode($_GET['status']);
+    // var_dump($status);
+    // exit;
+	}
+
 
 ?>
 
@@ -28,11 +34,12 @@
 <body>
     <div class="alert alert-warning parent" style="width: 30%;">
         <h1 class="text-center text-color">Reset Password</h1>
+        <h3 class="text-center error"><?php if(isset(($status)->fail)) echo $status->fail; ?></h3>
         <form action="reset_password_validation.php" method="post" enctype="multipart/form-data">
             
             <div class="form-group">
               <label for="username" class="text-color text-size">Username</label>
-              <input type="text" name="username" class="form-control" id="username" placeholder="Enter Username" value="<?php if(isset(($old)->username)) {echo $old->username;}?>">
+              <input type="text" name="username" class="form-control" id="username" placeholder="Enter Username" value="<?php if(isset(($data)->username)) {echo $data->username;}?>">
 		      <p class="error"><?php if(isset($errors->username)){echo $errors->username;}?></p>	
             </div>
             <div class="form-group">

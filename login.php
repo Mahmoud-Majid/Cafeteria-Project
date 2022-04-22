@@ -6,18 +6,22 @@ error_reporting(E_ALL);
 session_start();
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === TRUE) {
   if ($_SESSION['is_admin'] != 1) {
-    // header("Location: userPages/home.php");
-    echo "hello in user pages!";
+    header("Location: userPages/home.php");
   } else {
-    header("Location: adminView/add_user.php");
+    header("Location: adminView/manualOrder.php");
   }
 }
 
 if (isset($_GET['errors'])) {
   $errors = json_decode($_GET['errors']);
 }
-if (isset($_GET['errors'])) {
-  $errors = json_decode($_GET['errors']);
+
+if(isset($_GET['data'])){
+  $data = json_decode($_GET['data']);
+}
+
+if(isset($_GET['status'])){
+  $status = json_decode($_GET['status']);
 }
 
 ?>
@@ -46,23 +50,17 @@ if (isset($_GET['errors'])) {
   <div class="alert alert-warning parent" style="width: 30%;">
     <h1 class="text-center"><img src="./images/logo.png" alt="logo" class="logo" width="100px" height="100px" /></h1>
     <h1 class="text-center text-color">Java Cafe</h1>
+    <h3 class="text-center success"><?php if(isset(($status)->success))  echo $status->success; ?></h3>
     <form action="login_validation.php" method="post" enctype="multipart/form-data">
-
       <div class="form-group">
         <label for="username" class="text-color text-size">Username</label>
-        <input type="text" name="username" class="form-control" id="username" placeholder="Enter Username" value="<?php if (isset(($old)->username)) {
-                                                                                                                    echo $old->username;
-                                                                                                                  } ?>">
-        <p class="error"><?php if (isset($errors->username)) {
-                            echo $errors->username;
-                          } ?></p>
+        <input type="text" name="username" class="form-control" id="username" placeholder="Enter Username" value="<?php if (isset(($data)->username)) {echo $data->username;} ?>">
+        <p class="error"><?php if (isset($errors->username)) {echo $errors->username;} ?></p>
       </div>
       <div class="form-group">
         <label for="password" class="text-color text-size">Password</label>
         <input type="password" name="password" class="form-control" id="password" placeholder="Enter Password">
-        <p class="error"><?php if (isset($errors->password)) {
-                            echo $errors->password;
-                          } ?></p>
+        <p class="error"><?php if (isset($errors->password)) {echo $errors->password;} ?></p>
         <br>
         <div class="text-center">
           <button type="submit" class="btn btn-warning text-size text-color">Login</button>

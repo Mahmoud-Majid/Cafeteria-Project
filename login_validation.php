@@ -44,7 +44,8 @@ try {
 
     if (sizeof($errors) > 0) {
         $errors = json_encode($errors);
-        header("Location:./login.php?errors={$errors}");
+        $data = json_encode($_POST);
+        header("Location:./login.php?errors={$errors}&data={$data}");
     } else {
         session_regenerate_id();
         $_SESSION['loggedin'] = TRUE;
@@ -54,9 +55,9 @@ try {
         $_SESSION['is_admin'] = $user->is_admin;
 
         if ($user->is_admin) {
-            header('Location: adminView/adduser.php');
+            header('Location: adminView/manualOrder.php');
         } else {        
-            header('Location: userView/userOrder.php');
+            header('Location: userView/home.php');
         }
     }
 } catch (PDOException $e) {
