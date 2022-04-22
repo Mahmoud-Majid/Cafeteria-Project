@@ -39,7 +39,7 @@ $res = $stmt->fetchAll();
 </head>
 <body >
 
-<?php include('adminNav.html') ?>
+<?php include('../navbars/admin_header.php') ?>
 
 
 <div id="main-container" class="container  col-m-7 col-s-4 col-12  " >
