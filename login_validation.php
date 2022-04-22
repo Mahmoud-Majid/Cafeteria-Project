@@ -55,9 +55,8 @@ try {
 
         if ($user->is_admin) {
             header('Location: adminView/adduser.php');
-        } else {
-            // header('Location: userPages/home.php');
-            header('Location:userView/home.php');
+        } else {        
+            header('Location: userView/userOrder.php');
         }
     }
 } catch (PDOException $e) {
