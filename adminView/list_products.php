@@ -30,13 +30,13 @@ if ($_SESSION['is_admin'] != 1) {
 
             <div class='table-title'>
                 <div>All Products</div>
-                <button><a href="add_product.php">Add a product</a></button>
+                <button><a href="add_product.php">Add product</a></button>
             </div>
 
             <table>
                 <tr class="table-header">
                     <th>Product</th>
-                    <th>Price(EGP)</th>
+                    <th>Price (EG)</th>
                     <th>Image</th>
                     <th>Actions</th>
                 </tr>

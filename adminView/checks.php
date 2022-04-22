@@ -87,24 +87,28 @@ if ($_SESSION['is_admin'] != 1) {
 	<div class="container tbl">
 		<table style="width: 100%">
 			<tr>
-				<th style="width: 60%; border-right: 1px solid #fff;">Client</th>
+				<th style="width: 70%; border-right: 1px solid #fff;">Client</th>
 				<th>Total Amount</th>
 			</tr>
 			<?php
 			$users = select($from, $to, $user_id);
+			$i = 0;
 			foreach ($users as $user) {
+
 			?>
 				<tr>
 					<td>
 						<div class="accordion" id="accordionFlushExample">
 
+
 							<div class="accordion-item">
 								<h2 class="accordion-header" id="flush-headingOne">
-									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne" style="width: 300px;">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne<?= $i ?>" aria-expanded="false" aria-controls="flush-collapseOne" style="width: 300px; font-weight: bold; text-align:center">
 										<?= $user->username ?>
+
 									</button>
 								</h2>
-								<div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+								<div id="flush-collapseOne<?= $i ?>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
 									<div class="accordion-body">
 										<div class="accordion" id="accordionFlushExample1">
 											<?php
@@ -113,30 +117,31 @@ if ($_SESSION['is_admin'] != 1) {
 											?>
 												<div class="accordion-item">
 													<h2 class="accordion-header" id="headingOne">
-														<button class="accordion-button collapsed" style="width: 100%;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+														<button class="accordion-button collapsed" style="width: 100%;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne<?= $i ?>" aria-expanded="false" aria-controls="collapseOne">
 															<table style="width: 100%">
 																<tr>
-																	<th> Order date </th>
+																	<th style="border-right: 1px solid #fff;"> Order date </th>
 																	<th> Amount </th>
 																</tr>
-																<tr>
-																	<td> <?= $order->date ?> </td>
-																	<td> <?= $order->total ?> </td>
+																<tr style="font-weight: bold; font-size:18px ; text-align:center">
+																	<td style=" font-size:16px ; "> <?= $order->date ?> </td>
+																	<td> <?= $order->total ?> EG</td>
 																</tr>
 															</table>
 														</button>
 													</h2>
-													<div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionFlushExample1">
-														<div class="accordion-body">
+													<div id="collapseOne<?= $i ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionFlushExample1">
+														<div class="accordion-body d-flex" style="flex-wrap: wrap;">
 															<?php
 															$products = getUserProducts($order->order_id);
 															foreach ($products as  $product) {
 															?>
-																<div class="card" style="width: 18rem;">
-																	<img src="<?= $product->pic ?>" class="card-img-top" alt="...">
+																<div class="card">
+																	<img src="<?= $product->pic ?>" class="card-img-top" alt="..." style="width:100% ; height:100px">
 																	<div class="card-body">
-																		<h5 class="card-title">name: <?= $product->name ?></h5>
-																		<h6>price: <?= $product->price ?></h6>
+																		<h5 class="card-title" style="font-weight: bold; text-align:center"><?= $product->name ?></h5>
+																		<hr />
+																		<h6>price: <?= $product->price ?> EG</h6>
 																		<h6>quantity: <?= $product->quantity ?></h6>
 																	</div>
 																</div>
@@ -149,15 +154,13 @@ if ($_SESSION['is_admin'] != 1) {
 									</div>
 								</div>
 							</div>
-
-
-
-
 						</div>
 					</td>
-					<td> <?= $user->total ?> </td>
+					<td style="font-weight: bold; font-size:18px ; text-align:center"> <?= $user->total ?> EG</td>
 				</tr>
-			<?php	} ?>
+
+			<?php $i++;
+			} ?>
 		</table>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -258,7 +261,6 @@ class Order
 			$stmt = $db->prepare($select_query);
 			$res = $stmt->execute();
 			$rows = $stmt->fetchAll(PDO::FETCH_OBJ);
-			var_dump($rows);
 			return ($rows);
 		} catch (PDOException $e) {
 			$e->getMessage();

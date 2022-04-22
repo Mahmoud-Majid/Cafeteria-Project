@@ -23,27 +23,41 @@ body {
 }
 
 .table-title div {
-  font-size: 2.2rem;
+  font-size: 1.7rem;
   font-family: roboto, sans-serif;
-  font-weight: 900;
-  color: midnightblue;
+  font-weight: bold;
+  color: #245365;
 }
 .table-title button {
   height: 40px;
   cursor: pointer;
-  background-color: midnightblue;
-  color: palegoldenrod;
+  background-color: #fff;
   border: none;
+  color: #245365;
   border-radius: 5px;
   text-align: center;
   display: inline-block;
   font-weight: bold;
   font-size: 1.2rem;
+  border: 2px solid #4489a3;
+  padding: 0 15px;
+}
+
+.table-title button a {
+  color: #245365;
 }
 
 .table-title button:hover {
-  background-color: rgb(57, 97, 231);
+  background-color: #4489a3;
+  border: 2px solid #fff;
+  color: #fff;
 }
+
+.table-title button a:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
 #main-container {
   display: flex;
   justify-content: center;
@@ -63,28 +77,29 @@ table {
 tr {
   background-color: #f2f2f2;
 }
+
 .table-header {
-  background-color: #1772ff;
-  color: navajowhite;
-  font-size: 1.3rem;
+  background-color: #4489a3;
+  color: white;
+  font-size: 18px;
+}
+
+.table-header th{
+  border-right: 2px solid #fff;
 }
 
 th {
   height: 30px;
 }
 
-td:first-child {
-  text-align: center;
-}
-
 tr,
 th,
 td {
-  border: 1px solid #1772ff;
-
+  border: 1px solid #4489a3;
   border-collapse: collapse;
   padding: 5px;
   text-align: center;
+  font-size: 18px;
 }
 
 .update-btn {
