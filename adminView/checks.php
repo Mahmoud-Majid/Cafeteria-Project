@@ -90,16 +90,17 @@ if ($_SESSION['is_admin'] != 1) {
 				<th style="width: 60%; border-right: 1px solid #fff;">Client</th>
 				<th>Total Amount</th>
 			</tr>
-			<tr>
-				<td>
-					<div class="accordion" id="accordionFlushExample">
-						<?php
-						$users = select($from, $to, $user_id);
-						foreach ($users as $user) {
-						?>
+			<?php
+			$users = select($from, $to, $user_id);
+			foreach ($users as $user) {
+			?>
+				<tr>
+					<td>
+						<div class="accordion" id="accordionFlushExample">
+
 							<div class="accordion-item">
 								<h2 class="accordion-header" id="flush-headingOne">
-									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne" style="width: 300px;">
 										<?= $user->username ?>
 									</button>
 								</h2>
@@ -112,8 +113,17 @@ if ($_SESSION['is_admin'] != 1) {
 											?>
 												<div class="accordion-item">
 													<h2 class="accordion-header" id="headingOne">
-														<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
-															<?= $order->date ?>
+														<button class="accordion-button collapsed" style="width: 100%;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+															<table style="width: 100%">
+																<tr>
+																	<th> Order date </th>
+																	<th> Amount </th>
+																</tr>
+																<tr>
+																	<td> <?= $order->date ?> </td>
+																	<td> <?= $order->total ?> </td>
+																</tr>
+															</table>
 														</button>
 													</h2>
 													<div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionFlushExample1">
@@ -139,13 +149,15 @@ if ($_SESSION['is_admin'] != 1) {
 									</div>
 								</div>
 							</div>
-						<?php	} ?>
 
 
 
-					</div>
-				</td>
-			</tr>
+
+						</div>
+					</td>
+					<td> <?= $user->total ?> </td>
+				</tr>
+			<?php	} ?>
 		</table>
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
@@ -176,37 +188,8 @@ class Order
 		try {
 			$opj = new Order();
 			$db = $opj->connect();
-			$select_query = "SELECT username,user_id FROM `user`";
-			$stmt = $db->prepare($select_query);
-			$res = $stmt->execute();
-			$rows = $stmt->fetchAll(PDO::FETCH_OBJ);
-			return ($rows);
-		} catch (PDOException $e) {
-			$e->getMessage();
-		}
-	}
-
-	public function UsersOrder($user_id, $from, $to)
-	{
-		try {
-			$opj = new Order();
-			$db = $opj->connect();
-			$select_query = "SELECT date , order_id FROM `orders` where orders.user_id = '" . $user_id . "' and orders.date BETWEEN '" . $from . "' and  '" . $to . "' ";
-			$stmt = $db->prepare($select_query);
-			$res = $stmt->execute();
-			$rows = $stmt->fetchAll(PDO::FETCH_OBJ);
-			return ($rows);
-		} catch (PDOException $e) {
-			$e->getMessage();
-		}
-	}
-
-	public function order($user_id)
-	{
-		try {
-			$opj = new Order();
-			$db = $opj->connect();
-			$select_query = "SELECT date , order_id FROM `orders` where orders.user_id = '" . $user_id . "' ";
+			$select_query = "SELECT DISTINCT user.username , orders.user_id , SUM(product.price*order_product.quantity) as total from user,orders,product,order_product
+			                 where user.user_id = orders.user_id and orders.order_id=order_product.order_id and order_product.product_id=product.product_id GROUP by username ";
 			$stmt = $db->prepare($select_query);
 			$res = $stmt->execute();
 			$rows = $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -221,7 +204,8 @@ class Order
 		try {
 			$opj = new Order();
 			$db = $opj->connect();
-			$select_query = "SELECT DISTINCT user.username, orders.user_id from user,orders where user.user_id = orders.user_id and orders.user_id = '" . $user_id . "' ";
+			$select_query = "SELECT DISTINCT user.username, orders.user_id , SUM(product.price*order_product.quantity) as total from user,orders,product,order_product 
+			                 where user.user_id = orders.user_id and orders.user_id = '" . $user_id . "' and orders.order_id=order_product.order_id and order_product.product_id=product.product_id ";
 			$stmt = $db->prepare($select_query);
 			$res = $stmt->execute();
 			$rows = $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -237,7 +221,8 @@ class Order
 		try {
 			$opj = new Order();
 			$db = $opj->connect();
-			$select_query = "SELECT DISTINCT user.username , orders.user_id from user,orders where user.user_id = orders.user_id and orders.date BETWEEN '" . $from . "' and  '" . $to . "' ";
+			$select_query = "SELECT DISTINCT user.username , orders.user_id , SUM(product.price*order_product.quantity) as total from user,orders,product,order_product 
+			                 where user.user_id = orders.user_id and orders.date BETWEEN '" . $from . "' and  '" . $to . "' and orders.order_id=order_product.order_id and order_product.product_id=product.product_id GROUP by username";
 			$stmt = $db->prepare($select_query);
 			$res = $stmt->execute();
 			$rows = $stmt->fetchAll(PDO::FETCH_OBJ);
@@ -252,7 +237,41 @@ class Order
 		try {
 			$opj = new Order();
 			$db = $opj->connect();
-			$select_query = "SELECT DISTINCT user.username , orders.user_id from user,orders where user.user_id = orders.user_id and orders.date BETWEEN '" . $from . "' and  '" . $to . "' and orders.user_id = '" . $user_id . "' ";
+			$select_query = "SELECT DISTINCT user.username , orders.user_id , SUM(product.price*order_product.quantity) as total from user,orders,product,order_product  
+			                where user.user_id = orders.user_id and orders.date BETWEEN '" . $from . "' and  '" . $to . "' and orders.user_id = '" . $user_id . "' and orders.order_id=order_product.order_id and order_product.product_id=product.product_id ";
+			$stmt = $db->prepare($select_query);
+			$res = $stmt->execute();
+			$rows = $stmt->fetchAll(PDO::FETCH_OBJ);
+			return ($rows);
+		} catch (PDOException $e) {
+			$e->getMessage();
+		}
+	}
+
+	public function UsersOrder($user_id, $from, $to)
+	{
+		try {
+			$opj = new Order();
+			$db = $opj->connect();
+			$select_query = "SELECT date , orders.order_id , SUM(product.price*order_product.quantity) as total from orders,product,order_product 
+							 where orders.user_id = '" . $user_id . "' and orders.date BETWEEN '" . $from . "' and  '" . $to . "' and orders.order_id=order_product.order_id and order_product.product_id=product.product_id GROUP by orders.order_id";
+			$stmt = $db->prepare($select_query);
+			$res = $stmt->execute();
+			$rows = $stmt->fetchAll(PDO::FETCH_OBJ);
+			var_dump($rows);
+			return ($rows);
+		} catch (PDOException $e) {
+			$e->getMessage();
+		}
+	}
+
+	public function order($user_id)
+	{
+		try {
+			$opj = new Order();
+			$db = $opj->connect();
+			$select_query = "SELECT date , orders.order_id , SUM(product.price*order_product.quantity) as total from orders,product,order_product
+			                 where orders.user_id = '" . $user_id . "' and orders.order_id=order_product.order_id and order_product.product_id=product.product_id GROUP by orders.order_id";
 			$stmt = $db->prepare($select_query);
 			$res = $stmt->execute();
 			$rows = $stmt->fetchAll(PDO::FETCH_OBJ);
