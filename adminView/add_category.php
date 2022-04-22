@@ -26,7 +26,7 @@ if (isset($_GET["olddata"])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/add_product.css" />
 
-    <main class="container p-4">
+    <main class="container p-5">
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-5">
@@ -65,8 +65,8 @@ if (isset($_GET["olddata"])) {
                         </div>
 
                         <div class="form-group btns">
-                            <input type="submit" name="save_task" class="btn btn-primary btn-block" value="Save Category">
-                            <input type="reset" name="reset" class="btn btn-danger btn-block" value="Reset">
+                            <input type="submit" name="save_task" class="btn btn-success up fw-bold btn-block" value="Save Category">
+                            <input type="reset" name="reset" class="btn btn-danger res fw-bold btn-block" value="Reset">
                         </div>
                     </form>
                 </div>

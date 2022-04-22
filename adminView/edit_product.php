@@ -76,7 +76,7 @@ if (isset($_POST['update'])) {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/add_product.css" />
     <main>
-        <div class="container p-4">
+        <div class="container p-5">
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-5">
@@ -111,15 +111,15 @@ if (isset($_POST['update'])) {
                             </div>
 
                             <div class="form-group ">
-                                <div class="custom-file">
-                                    <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                                    <input type="file" name="file" class="custom-file-input" value="<?php echo $row['pic']; ?>" aria-describedby="inputGroupFileAddon01">
+                                <div>
+                                    <label for="inputGroupFile01">Choose file</label>
+                                    <input type="file" name="file" value="<?php echo $row['pic']; ?>" aria-describedby="inputGroupFileAddon01">
 
                                 </div>
                             </div>
                             <div class="form-group btns">
-                                <input type="submit" name="update" class="btn btn-primary btn-block" value="Update">
-                                <input type="reset" name="reset" class="btn btn-danger btn-block" value="Reset">
+                                <input type="submit" name="update" class="btn btn-success btn-block up fw-bold" value="Update">
+                                <input type="reset" name="reset" class="btn btn-danger btn-block res fw-bold" value="Reset">
                             </div>
                         </form>
                     </div>
