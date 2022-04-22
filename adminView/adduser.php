@@ -57,7 +57,7 @@
                     <div class="col-md-12 mx-0">
                         <!-- <form id=""> -->
                             <!-- fieldsets -->
-                            <form class="msform" action="validateUser.php" method="post" enctype="multipart/form-data">
+                        <form class="msform" action="validateUser.php" method="post" enctype="multipart/form-data">
                             <fieldset  id="first-fieldset">
                                 <div class="form-card">
                                     <h2 class="fs-title">Account Information</h2> 
@@ -92,7 +92,7 @@
                                 <input type="submit" name="submit" class=" action-button submit" value="Submit" />
                                 <!-- <button type="submit" class="btn btn-warning">Submit</button> -->
                             </fieldset>
-                            </form>
+                        </form>
                             <!-- <fieldset>
                                 <div class="form-card">
                                     <h2 class="fs-title text-center">Success !</h2> <br><br>

@@ -54,11 +54,10 @@
             $_SESSION['is_admin']=$user->is_admin;
 
             if($user->is_admin){
-                header('Location: adminView/add_user.php');
+                header('Location: adminView/adduser.php');
             }
             else{
-                // header('Location: userPages/home.php');
-                echo "hello in user pages!";
+                header('Location: navbars/user_header.php');
             }
         }
     
@@ -66,4 +65,19 @@
     }catch (PDOException $e) {
         echo 'Connection failed: ' . $e->getMessage();
     }
-?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?> 

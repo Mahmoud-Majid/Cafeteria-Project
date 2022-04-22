@@ -4,10 +4,11 @@
 	error_reporting(E_ALL);
 
   session_start();
+  
   if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === TRUE) {
       if($_SESSION['is_admin']!=1){
           // header("Location: userPages/home.php");
-          echo "hello in user pages!";
+          // echo "hello in user pages!";
       }
       else{
           header("Location: adminView/add_user.php");
