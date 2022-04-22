@@ -37,11 +37,10 @@ $res = $stmt->fetchAll();
    
 
 </head>
-<body >
 
 <?php include('../navbars/admin_header.php') ?>
 
-
+<body >
 <div id="main-container" class="container  col-m-7 col-s-4 col-12  " >
 <div id="head"><p>ORDERS</p></div>
 <div id="table-container"  class="row col-12">
