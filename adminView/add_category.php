@@ -1,13 +1,13 @@
 <?php
 
-  session_start();
-  // If the user is not logged in redirect to the login page...
-  if (!isset($_SESSION['loggedin'])) {
-      header('Location: ../login.php');
-  }
-  if ($_SESSION['is_admin']!=1){
-      die ("Access Denied");
-  }
+session_start();
+// If the user is not logged in redirect to the login page...
+if (!isset($_SESSION['loggedin'])) {
+    header('Location: ../login.php');
+}
+if ($_SESSION['is_admin'] != 1) {
+    die("Access Denied");
+}
 
 if (isset($_GET["errors"])) {
     $errors = json_decode($_GET["errors"]);
@@ -16,12 +16,13 @@ if (isset($_GET["olddata"])) {
     $olddata = json_decode($_GET["olddata"]);
 }
 ?>
+<?php include('../navbars/admin_header.php') ?>
 
 <body>
     <?php include("../mysqli.php"); ?>
 
-    <?php include('../navbars/admin_header.php') ?>
-   
+
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/add_product.css" />
 

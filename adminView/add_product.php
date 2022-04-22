@@ -16,11 +16,12 @@ if (isset($_GET["olddata"])) {
     $olddata = json_decode($_GET["olddata"]);
 }
 ?>
+<?php include('../navbars/admin_header.php') ?>
 
 <body>
     <?php include("../mysqli.php"); ?>
 
-    <?php include('../navbars/admin_header.php') ?>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/add_product.css" />
 
@@ -92,7 +93,7 @@ if (isset($_GET["olddata"])) {
                         <div class=" form-group">
                             <div class=" custom-file">
                                 <label class="custom-file-label" for="inputGroupFile01">Choose image</label>
-                                <input type="file" name="image" class="custom-file-input" aria-describedby="inputGroupFileAddon01">
+                                <input type="file" name="image" class="form-control" aria-describedby="inputGroupFileAddon01">
                                 <?php
                                 if (isset($errors->image)) {
                                     echo "<p class='error' >$errors->image</p>";
