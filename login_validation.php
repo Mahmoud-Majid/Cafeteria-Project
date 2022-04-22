@@ -57,7 +57,7 @@ try {
             header('Location: adminView/adduser.php');
         } else {
             // header('Location: userPages/home.php');
-            echo "hello in user pages!";
+            header('Location:userView/home.php');
         }
     }
 } catch (PDOException $e) {

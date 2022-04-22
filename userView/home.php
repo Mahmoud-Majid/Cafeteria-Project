@@ -360,7 +360,7 @@ $_SESSION['id'] = 5;
 
     <!-- TO DO getting all user info  -->
 
-    <?php include('userNav.html') ?>
+    <?php include('navbars/userNav.html') ?>
 
     <div class="main">
         <form class="order-data" id="form" action="insertOrder.php" method="post">
