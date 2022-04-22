@@ -1,3 +1,31 @@
+<?php
+
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
+
+    session_start();
+
+    // If the user is not logged in redirect to the login page...
+
+    if (!isset($_SESSION['loggedin'])) {
+        header('Location: ../login.php');
+    }
+    if ($_SESSION['is_admin']==1){
+        die ("Access Denied");     
+    }
+
+    $image = $_SESSION['profile_pic'];
+    $username = $_SESSION['name'];
+
+
+    // var_dump("../images/".$image);
+    // exit;
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,13 +46,10 @@
     <nav class="navbar navbar-expand-sm navbar-warning navbar-fixed-top bg-black py-0 px-0"> <a class="navbar-brand nav-link" id="logo" href="#">Java Cafe &nbsp;&nbsp;&nbsp;</a> <span class="v-line"></span> <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
-                <li class="nav-item active"> <a class="nav-link" href="../adminView/orders.php">Home</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="../adminView/list_products.php">Products</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="#">Users</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="../adminView/manualOrder.php">Manual Orders</a> </li>
-                <li class="nav-item"> <a class="nav-link" href="../adminView/checks.php">Checks</a> </li>
-                <li class="nav-item ml-auto"> <a class="nav-link" href="#">Admin</a> </li>
-                <li class="nav-item"><img src="../images/admin.png" alt="admin" class="avatar"/></li>
+                <li class="nav-item active"> <a class="nav-link" href="../userView/home.php">Home</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="../userView/userOrder.php">My Orders</a> </li>
+                <li class="nav-item  ml-auto"> <a class="nav-link" href="#"><?php echo $username ?></a> </li>
+                <li class="nav-item"><?php echo'<img alt="user" class="avatar" src="../images/'.$image.'">';?></li>
                 <li class="nav-item "><a class="nav-link" href="../logout.php">Logout</a></li>
               </ul>
         </div>

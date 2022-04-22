@@ -5,8 +5,8 @@ session_start();
 if (!isset($_SESSION['loggedin'])) {
     header('Location: ../login.php');
 }
-if ($_SESSION['is_admin']!=1){
-    die ("Access Denied");
+if ($_SESSION['is_admin'] != 1) {
+    die("Access Denied");
 }
 
 ?>
@@ -70,7 +70,7 @@ $stmt = $db->query($query);
             <div class='footer'>
                 <div id="orderFooter" class="orderFooter">
                     <hr>
-                    <span id=total>Total: 0$</span><br>
+                    <h6 id=total>Total: 0 EG</h6>
                     <hr>
                 </div>
                 <button class="confirm" type="submit">Confirm</button>
@@ -88,8 +88,11 @@ $stmt = $db->query($query);
             while ($ele = $stmt->fetch()) {
                 echo ("<div class='item'>
                     <img class='item-img' data-price={$ele['price']} data-name={$ele['name']} data-id={$ele['product_id']} src='../images/{$ele['pic']}' />
-                    <div>{$ele['name']}</div>
-                    <div>{$ele['price']}$</div>
+                    <div class='item-body'>
+                        <h5 style='font-weight:bold'>{$ele['name']}</h5>
+                        <hr/>
+                        <h6>{$ele['price']} EG</h6>
+                    </div>
                 </div>"
                 );
             }
