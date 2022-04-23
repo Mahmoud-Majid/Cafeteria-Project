@@ -27,10 +27,11 @@ $_SESSION['id'] = 5;
     <!-- <link rel="stylesheet" href="../css/home.css" /> -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../css/adminNav.css" />
+    <link rel="stylesheet" href="../css/manualOrder.css" />
 
 
     <title>Home</title>
-    <style>
+    <!-- <style>
         * {
             box-sizing: border-box;
         }
@@ -352,7 +353,7 @@ $_SESSION['id'] = 5;
             align-items: center;
             justify-content: space-evenly;
         }
-    </style>
+    </style> -->
 </head>
 
 <body>
@@ -382,7 +383,7 @@ $_SESSION['id'] = 5;
             <div class='footer'>
                 <div id="orderFooter" class="orderFooter">
                     <hr>
-                    <span id=total>Total: 0$</span><br>
+                    <h6 id=total>Total: 0 EG</h6>
                     <hr>
                 </div>
                 <button class="confirm" type="submit">Confirm</button>
@@ -399,7 +400,7 @@ $_SESSION['id'] = 5;
             $res = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
             echo "<div class='latest-order'>
-            <div class='latestOrder-title'>Latest Order</div>
+            <h5 class='mx-5 my-3'>Latest Order</h5>
             <div class='all-items'>";
 
             while ($ele = $stmt->fetch()) {
@@ -420,17 +421,21 @@ $_SESSION['id'] = 5;
             <input class='form-control me-2 search-bar' type='search' placeholder='Search' aria-label='Search'
                 name='search' id='search'>
              </div>";
-            echo "<div class='products-list'><div class='products-list-title'>Available Products</div>";
+            echo "<div class='products-list'><h3 class='products-list-title'>Available Products</h3>";
             // echo "<div class='search-bar'><input type='text' placeholder='find product' name='search' id='search'></div>";
             echo "<div class='items-list'>";
             while ($ele = $stmt->fetch()) {
                 echo ("<div class=item>
                 <img class='item-img product'  data-price={$ele['price']} data-name={$ele['name']} data-id={$ele['product_id']} src={$ele['pic']}  />
-                <div>{$ele['name']} </div>
-                <div>{$ele['price']} L.E</div>
+                <div class='item-body'>
+                        <h5 style='font-weight:bold'>{$ele['name']}</h5>
+                        <hr/>
+                        <h6>{$ele['price']} EG</h6>
+                </div>
 
             </div>");
             }
+
             echo "</div>";
             echo "</div>";
             $db = null;
@@ -490,7 +495,7 @@ $_SESSION['id'] = 5;
 
                 let elementPrice = document.createElement("span");
 
-                elementPrice.innerText = `${price}$`
+                elementPrice.innerText = `${price} EG`
                 elementPrice.setAttribute("class", "elementPrice");
                 div.appendChild(elementPrice);
 
@@ -500,7 +505,7 @@ $_SESSION['id'] = 5;
                 deleteBtn.setAttribute("class", "deleteBtn");
                 deleteBtn.addEventListener("click", function() {
                     orderList.removeChild(div);
-                    total.innerText = totalOrderPrice() + "$";
+                    total.innerText = totalOrderPrice() + "EG";
                 })
                 div.appendChild(deleteBtn);
                 orderList.appendChild(div);
@@ -510,22 +515,22 @@ $_SESSION['id'] = 5;
                     count = count < 1 ? 1 : count;
                     quantity.value = count;
                     let itemPrice = price * parseInt(quantity.value);
-                    elementPrice.innerText = itemPrice + "$";
+                    elementPrice.innerText = itemPrice + " EG";
 
-                    total.innerText = "Total: " + totalOrderPrice() + "$";
+                    total.innerText = "Total: " + totalOrderPrice() + " EG";
                 })
 
                 plusBtn.addEventListener("click", () => {
                     let count = parseInt(quantity.value) + 1;
                     quantity.value = count;
                     let itemPrice = price * parseInt(quantity.value);
-                    elementPrice.innerText = itemPrice + "$";
+                    elementPrice.innerText = itemPrice + " EG";
 
-                    total.innerText = "Total: " + totalOrderPrice() + "$";
+                    total.innerText = "Total: " + totalOrderPrice() + " EG";
 
                 })
 
-                total.innerText = "Total: " + totalOrderPrice() + "$";
+                total.innerText = "Total: " + totalOrderPrice() + " EG";
             })
         }
 
