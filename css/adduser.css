@@ -110,7 +110,7 @@ html {
 
 .msform .submit {
     width: 100px;
-    background: #f0ad4e;
+    background: skyblue;
     font-weight: bold;
     color: white;
     border: 0 none;
@@ -122,7 +122,7 @@ html {
 
 .msform .submit:hover,
 .msform .submit:focus {
-    box-shadow: 0 0 0 2px white, 0 0 0 3px #f0ad4e
+    box-shadow: 0 0 0 2px white, 0 0 0 3px skyblue;
 }
 
 .msform .action-button-previous:hover,
@@ -252,4 +252,14 @@ select.list-dt:focus {
 .fit-image {
     width: 100%;
     object-fit: cover
+}
+
+.parent{
+    color: #4489a3;
+    background-color: #effbff;
+    height: 100vh;
+}
+
+.parent .card{
+    box-shadow: 0 2.8px 2.2px rgb(0 0 0 / 5%), 0 6.7px 5.3px rgb(0 0 0 / 5%), 0 12.5px 10px rgb(0 0 0 / 5%), 0 22.3px 17.9px rgb(0 0 0 / 5%), 0 41.8px 33.4px rgb(0 0 0 / 5%), 0 100px 80px rgb(0 0 0 / 5%);
 }

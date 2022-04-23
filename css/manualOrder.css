@@ -227,13 +227,14 @@ body {
 
 .item-name{
 
-  min-width:  50px;
+  min-width:  100px;
   margin-right: 5px;
   font-size: 1.2rem;
   font-weight: bold;
   text-align: left;
   align-items: center;
 }
+
 .item-input{
   display: flex;
 

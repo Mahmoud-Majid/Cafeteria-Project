@@ -25,10 +25,10 @@ if ($_SESSION['is_admin'] != 1) {
     <link rel="stylesheet" href="../css/check.css" />
 </head>
 
-<?php include('../navbars/admin_header.php') ?>
+
 
 <body>
-
+    <?php include('../navbars/admin_header.php') ?>
     <div class="form-container">
         <?php
 		$from = NULL;

@@ -5,8 +5,8 @@
   border-radius: 50%;
 }
 
-.bg-black {
-  background-color: #856404;
+.nav-bg {
+  background-color: #4489a3;
   font-family: 'Niconne', cursive;
   font-size: 20px;
 }
@@ -31,10 +31,10 @@
 
 .nav-link {
   padding-bottom: 10px;
-  color: #fff3cd;
+  color: #ffffff;
 }
 .nav-link:hover {
-  color: #f0ad4e;
+  color: #bbedff;
 }
 
 .v-line {
