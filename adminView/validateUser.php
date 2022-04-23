@@ -166,7 +166,7 @@
             $insert_stmt->bindParam(":ext",$ext);
             $insert_stmt->execute();
 
-            header("Location:./adduser.php");
+            header("Location:./list_users.php");
         }catch (PDOException $e) {
             echo 'Connection failed: ' . $e->getMessage();
         }

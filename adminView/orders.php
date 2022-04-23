@@ -29,38 +29,39 @@ $res = $stmt->fetchAll();
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Check orders</title>
-  <link rel="stylesheet" href="../css/admin_header.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-  <!-- <link href="../css/orders.css" rel="stylesheet" type="text/css"> -->
-  <link rel="stylesheet" href="../css/listProducts.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Check orders</title>
+    <link rel="stylesheet" href="../css/admin_header.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <!-- <link href="../css/orders.css" rel="stylesheet" type="text/css"> -->
+    <link rel="stylesheet" href="../css/listProducts.css" />
 
 
 </head>
 
 <body>
-  <?php include('../navbars/admin_header.php') ?>
-  <main id='main-container' class="container p-4">
+    <?php include('../navbars/admin_header.php') ?>
+    <main id='main-container' class="container p-4">
 
-    <div id="table-container">
+        <div id="table-container">
 
 
-      <div class='table-title'>
-        <div style="font-size: 50px; margin:auto">Orders</div>
-      </div>
+            <div class='table-title'>
+                <div style="font-size: 50px; margin:auto">Orders</div>
+            </div>
 
-      <table>
-        <tr class="table-header">
-          <th>Order Date</th>
-          <th>Name</th>
-          <th>Room</th>
-          <th>Ext</th>
-          <th>Actions</th>
-        </tr>
+            <table>
+                <tr class="table-header">
+                    <th>Order Date</th>
+                    <th>Name</th>
+                    <th>Room</th>
+                    <th>Ext</th>
+                    <th>Actions</th>
+                </tr>
 
-        <?php
+                <?php
         foreach ($result as $data) {
           echo "<tr class='mb-3' style='font-weight:1000;'>";
           echo "<td>" . $data['date'] . "</td><td>" . $data['username'] . "</td><td>" . $data['room'] . "</td><td>" . $data['ext'] . "</td><td>";
@@ -74,18 +75,8 @@ $res = $stmt->fetchAll();
           $total = 0;
           foreach ($res as $orderdata) {
             if ($data['order_id'] == $orderdata['order_id']) {
-              //   echo "<div class='card'>
-              //   <img src='" . $orderdata['pic'] . "' class='card-img-top' style='width:100% ; height:100px'>
-              //   <div class='card-body'>
-              //     <h5 class='card-title' style='font-weight: bold; text-align:center'>" . $orderdata['name'] . "</h5>
-              //     <hr />
-              //     <h6>price: " . $orderdata['price'] . " EG" . "</h6>
-              //     <h6>quantity:" . $orderdata['quantity'] . "</h6>
-              //   </div>
-              // </div>;"
-
               echo "<div class='card'>
-          <div class='item-img'> <img src='" . $orderdata['pic'] . "' class='card-img-top' style='width:100% ; height:100px'></div>
+          <div class='item-img'> <img src='../images/" . $orderdata['pic'] . "' class='card-img-top' style='width:100% ; height:100px'></div>
         
           <div class='card-body'>
                   <h5 class='card-title' style='font-weight: bold; text-align:center'>" . $orderdata['name'] . "</h5>
@@ -106,9 +97,9 @@ $res = $stmt->fetchAll();
           echo "</td></tr>";
         }
         ?>
-      </table>
-    </div>
-  </main>
+            </table>
+        </div>
+    </main>
 
 
 
@@ -116,27 +107,29 @@ $res = $stmt->fetchAll();
 
 
 
-  <script>
+    <script>
     function updateOrder(id, status, e) {
-      var rout = new XMLHttpRequest();
-      rout.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          if (status == "deliver") {
-            document.getElementById(id).innerText = "Status : out for delivery";
-            e.remove();
-          } else {
-            e.parentNode.parentNode.parentNode.removeChild(e.parentNode.parentNode);
-            let remove = document.getElementById(id);
-            remove.parentNode.parentNode.parentNode.removeChild(remove.parentNode.parentNode);
-          }
-        }
-      };
-      rout.open("POST", "updateorders.php", true);
-      rout.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-      rout.send("order=" + id + "&status=" + status);
+        var rout = new XMLHttpRequest();
+        rout.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                if (status == "deliver") {
+                    document.getElementById(id).innerText = "Status : out for delivery";
+                    e.remove();
+                } else {
+                    e.parentNode.parentNode.parentNode.removeChild(e.parentNode.parentNode);
+                    let remove = document.getElementById(id);
+                    remove.parentNode.parentNode.parentNode.removeChild(remove.parentNode.parentNode);
+                }
+            }
+        };
+        rout.open("POST", "updateorders.php", true);
+        rout.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        rout.send("order=" + id + "&status=" + status);
     }
-  </script>
+    </script>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+</script>
 
 </html>
