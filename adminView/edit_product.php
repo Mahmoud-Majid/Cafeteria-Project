@@ -113,7 +113,7 @@ if (isset($_POST['update'])) {
                             <div class="form-group ">
                                 <div>
                                     <label for="inputGroupFile01">Choose file</label>
-                                    <input type="file" style="width: 55%;" name="file" value="<?php echo $row['pic']; ?>" aria-describedby="inputGroupFileAddon01">
+                                    <input type="file" class="upload" name="file" value="<?php echo $row['pic']; ?>" aria-describedby="inputGroupFileAddon01">
 
                                 </div>
                             </div>
