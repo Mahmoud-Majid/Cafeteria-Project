@@ -17,7 +17,13 @@ if (isset($_GET['errors'])) {
     $errors = json_decode($_GET['errors']);
 }
 
-
+if (isset($_GET['data'])) {
+    $data = json_decode($_GET['data']);
+}
+  
+if (isset($_GET['status'])) {
+    $status = json_decode($_GET['status']);
+}
 
 ?>
 
@@ -41,6 +47,10 @@ if (isset($_GET['errors'])) {
             color: red;
             font-family: 'Niconne', cursive;
         }
+        .success{
+            color: green;
+            font-family: 'Niconne', cursive; 
+        }
     </style>
 </head>
 
@@ -61,11 +71,11 @@ if (isset($_GET['errors'])) {
                                     <div class="form-card">
                                         <h2 class="fs-title">Account Information</h2>
                                         <input type="hidden" name="formType" value="1" />
-                                        <input type="text" name="username" placeholder="Username" />
+                                        <input type="text" name="username" placeholder="Username" value="<?php if (isset(($data)->username)) { echo $data->username;} ?>"/>
                                         <p class="error"><?php if (isset($errors->username)) {
                                                                 echo $errors->username;
                                                             } ?></p>
-                                        <input type="email" name="email" placeholder="Email Id" />
+                                        <input type="email" name="email" placeholder="Email Id" value="<?php if (isset(($data)->email)) { echo $data->email;} ?>"/>
                                         <p class="error"><?php if (isset($errors->email)) {
                                                                 echo $errors->email;
                                                             } ?></p>
@@ -78,7 +88,7 @@ if (isset($_GET['errors'])) {
                                                                 echo $errors->confirmpass;
                                                             } ?></p>
                                     </div>
-
+                                    <p class="text-center error"><?php if (isset(($status)->fail))  echo $status->fail; ?></p>
                                     <input type="button" name="next" class="next action-button" value="Next Step" />
                                 </fieldset>
 
@@ -86,11 +96,11 @@ if (isset($_GET['errors'])) {
                                     <div class="form-card">
                                         <h2 class="fs-title">Personal Information</h2>
                                         <input type="hidden" name="formType" value="2" />
-                                        <input type="number" name="room" placeholder="Room No." />
+                                        <input type="number" name="room" placeholder="Room No." value="<?php if (isset(($data)->room)) { echo $data->room;} ?>"/>
                                         <p class="error"><?php if (isset($errors->room)) {
                                                                 echo $errors->room;
                                                             } ?></p>
-                                        <input type="number" name="ext" placeholder="Contact No." />
+                                        <input type="number" name="ext" placeholder="Contact No." value="<?php if (isset(($data)->ext)) { echo $data->ext;} ?>"/>
                                         <p class="error"><?php if (isset($errors->ext)) {
                                                                 echo $errors->ext;
                                                             } ?></p>

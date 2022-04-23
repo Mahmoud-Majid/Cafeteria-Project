@@ -52,7 +52,6 @@ if (isset($_GET['status'])) {
     <div class="alert parent" style="width: 30%;">
       <h1 class="text-center"><img src="./images/logo.png" alt="logo" class="logo" width="100px" height="100px" /></h1>
       <h1 class="text-center text-color">Cafe</h1>
-      <h3 class="text-center success"><?php if (isset(($status)->success))  echo $status->success; ?></h3>
       <form action="login_validation.php" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label for="username" class="text-color text-size">Username</label>
@@ -71,6 +70,7 @@ if (isset($_GET['status'])) {
                             } ?></p>
           <br>
           <div class="text-center">
+          <p class="text-center success"><?php if (isset(($status)->success))  echo $status->success; ?></p>
             <button type="submit" class="btn btn-warning text-size text-color btn-log">Login</button>
             <br><br>
             <a href="forget_password.php" class="text-color">Forget your password? Reset it.</a>

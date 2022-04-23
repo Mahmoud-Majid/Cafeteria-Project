@@ -9,6 +9,7 @@ session_start();
 require "pdo.php";
 
 $errors = [];
+$data = [];
 $username = $_POST['username'];
 $password = $_POST['password'];
 

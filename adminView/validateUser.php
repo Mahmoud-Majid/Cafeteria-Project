@@ -7,7 +7,8 @@
     require "../pdo.php";
 
     $errors = [];
-
+    $data = [];
+    $status = [];
 
 
     if (isset($_POST['submit'])) {
@@ -101,8 +102,6 @@
 
             if (empty($room ) or $room=="") {
                 $errors["room"] = "Room no. is required!";
-            }elseif(!preg_match("/^[0-5]+$/i", $room)){
-                $errors["room"] = "Invalid room no.";
             }
         
             if (empty($ext ) or $ext=="") {
@@ -125,12 +124,13 @@
             }
 
             if(sizeof($errors)>0){
+                $status['fail'] = "Can't Add The User, Check The Error!";   
+                $status = json_encode($status);
                 $errors = json_encode($errors);
-                header("Location:./adduser.php?errors={$errors}");
+                $data = json_encode($_POST);
+                header("Location:./adduser.php?errors={$errors}&data={$data}&status={$status}");
             }
-    
-        // }
-    
+        
       }
     
 
