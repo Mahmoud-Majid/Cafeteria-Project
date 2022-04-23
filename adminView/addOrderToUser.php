@@ -21,8 +21,7 @@ include '../pdo.php';
 
 //insert into orders table 
 
-$sql = "INSERT INTO orders (user_id , status) 
-    VALUES($user_id, 'processing')";
+$sql = "INSERT INTO orders (user_id , status) VALUES($user_id, 'processing')";
 $db->exec($sql);
 
 $order_id = $db->lastInsertId();

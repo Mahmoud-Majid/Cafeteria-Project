@@ -18,11 +18,6 @@ $image = $_SESSION['profile_pic'];
 $username = $_SESSION['name'];
 
 
-// var_dump("../images/".$image);
-// exit;
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -50,7 +45,8 @@ $username = $_SESSION['name'];
                     <li class="nav-item active"> <a class="nav-link" href="../userView/home.php">Home</a> </li>
                     <li class="nav-item"> <a class="nav-link" href="../userView/userOrder.php">My Orders</a> </li>
                     <li class="nav-item  ml-auto"> <a class="nav-link" href="#"><?php echo $username ?></a> </li>
-                    <li class="nav-item"><?php echo '<img alt="user" class="avatar" src="../images/' . $image . '">'; ?></li>
+                    <li class="nav-item"><?php echo '<img alt="user" class="avatar" src="../images/' . $image . '">'; ?>
+                    </li>
                     <li class="nav-item "><a class="nav-link" href="../logout.php">Logout</a></li>
                 </ul>
             </div>
