@@ -22,7 +22,13 @@ body{
 .text-color{
   font-family: 'Niconne', cursive;
 
-  color: rgb(100, 69, 28);
+  color: #4489a3;
+}
+
+.title{
+  font-size: 16px;
+  font-weight: bold;
+  color: #4489a3;
 }
 
 .text-size{
@@ -39,4 +45,6 @@ input[type=number]::-webkit-outer-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+
   
