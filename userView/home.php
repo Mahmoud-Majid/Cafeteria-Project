@@ -79,9 +79,14 @@ $_SESSION['id'] = 5;
             $stmt = $db->query($query);
             $res = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
+            echo "<div class='d-flex'>
+            <input class='form-control me-2 search-bar' type='search' placeholder='Search' aria-label='Search'
+                name='search' id='search'>
+             </div>";
+
             echo "<div class='latest-order'>
-            <h5 class='mx-5 my-3'>Latest Order</h5>
-            <div class='all-items'>";
+            <h5 class='mx-5 my-5'>Latest Order</h5>
+            <div class='all-items' style='display: flex;justify-content: space-evenly;'>";
 
             while ($ele = $stmt->fetch()) {
                 echo ("<div class='order-item'>
@@ -97,10 +102,7 @@ $_SESSION['id'] = 5;
 
             $res = $stmt->setFetchMode(PDO::FETCH_ASSOC);
 
-            echo "<div class='d-flex'>
-            <input class='form-control me-2 search-bar' type='search' placeholder='Search' aria-label='Search'
-                name='search' id='search'>
-             </div>";
+
             echo "<div class='products-list'><h3 class='products-list-title'>Available Products</h3>";
             echo "<div class='items-list'>";
             while ($ele = $stmt->fetch()) {
