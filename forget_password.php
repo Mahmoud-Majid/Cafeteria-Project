@@ -30,7 +30,9 @@
     <title>Login</title>
 </head>
 <body>
-    <div class="alert alert-warning parent" style="width: 30%;">
+<div class="overlay-bg"></div>
+  <div class="cont">
+    <div class="alert parent" style="width: 30%;">
         <h1 class="text-center text-color">Reset Password</h1>
         <form action="reset_password_validation.php" method="post" enctype="multipart/form-data">
             
@@ -50,12 +52,14 @@
 		      <p class="error"><?php if(isset($errors->confirmpass)){echo $errors->confirmpass;}?></p>	
             </div>
             <div class="text-center">
-            <button type="submit" class="btn btn-warning text-color">Reset</button>
+            <button type="submit" class="btn btn-warning text-color btn-log">Reset</button>
             <br><br>
             <a href="login.php" class="text-color">Remembered your password? Log in.</a>
             <div>
           </form>
     </div>
+</div>
+</div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> 
 </body>
 </html>
