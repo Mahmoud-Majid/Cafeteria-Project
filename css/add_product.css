@@ -38,13 +38,17 @@ label {
   font-weight: bold;
 }
 
-.btns .up:hover{
+.upload {
+  width: 55%;
+}
+
+.btns .up:hover {
   border: 2px solid #198754;
   color: #198754;
   background-color: #fff;
 }
 
-.btns .res:hover{
+.btns .res:hover {
   border: 2px solid red;
   color: red;
   background-color: #fff;
@@ -56,13 +60,15 @@ label {
   font-weight: bold;
 }
 
-.card{
+.card {
   border-radius: 15px;
   padding: 0 20px;
-  box-shadow: 0 2.8px 2.2px rgb(0 0 0 / 3%), 0 6.7px 5.3px rgb(0 0 0 / 3%), 0 12.5px 10px rgb(0 0 0 / 3%), 0 22.3px 17.9px rgb(0 0 0 / 3%), 0 41.8px 33.4px rgb(0 0 0 / 3%), 0 100px 80px rgb(0 0 0 / 3%);
+  box-shadow: 0 2.8px 2.2px rgb(0 0 0 / 3%), 0 6.7px 5.3px rgb(0 0 0 / 3%),
+    0 12.5px 10px rgb(0 0 0 / 3%), 0 22.3px 17.9px rgb(0 0 0 / 3%),
+    0 41.8px 33.4px rgb(0 0 0 / 3%), 0 100px 80px rgb(0 0 0 / 3%);
 }
 
-.cat{
+.cat {
   margin-top: 30px;
   display: block;
   text-align: center;

@@ -105,7 +105,7 @@ if (isset($_POST['update'])) {
                             <div class="form-group ">
                                 <div>
                                     <label for="inputGroupFile01">Choose file</label>
-                                    <input type="file" name="file" value="<?php echo $row['profile_pic']; ?>" aria-describedby="inputGroupFileAddon01">
+                                    <input type="file" name="file" class="upload" value="<?php echo $row['profile_pic']; ?>" aria-describedby="inputGroupFileAddon01">
 
                                 </div>
                             </div>
