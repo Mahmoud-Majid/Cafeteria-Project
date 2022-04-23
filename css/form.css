@@ -1,0 +1,42 @@
+/* forms */
+body{
+    padding-top: 70px;   
+}
+
+.success{
+  color: green;
+  font-family: 'Niconne', cursive; 
+}
+
+.error{
+    color:red;
+  font-family: 'Niconne', cursive;
+
+}
+
+.parent{
+    margin: 30px auto;
+    font-family: "Times New Roman", Times, serif;
+}
+
+.text-color{
+  font-family: 'Niconne', cursive;
+
+  color: rgb(100, 69, 28);
+}
+
+.text-size{
+  font-size: 20px;
+}
+/* Chrome, Safari, Edge, Opera */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+  
