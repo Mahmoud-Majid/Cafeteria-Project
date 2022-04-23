@@ -11,7 +11,7 @@ if ($_SESSION['is_admin'] == 1) {
 
 // default value for testing
 
-$user_id=$_SESSION['id'] ;
+$user_id = $_SESSION['id'];
 ?>
 
 <!DOCTYPE html>
@@ -82,7 +82,7 @@ $user_id=$_SESSION['id'] ;
              </div>";
 
             echo "<div class='latest-order mx-5 my-5'>
-            <h5 class=''>Latest Order</h5>
+            <h5 class='mb-4'>Latest Order</h5>
             <div class='all-items' style='display: flex;justify-content: flex-start;'>";
 
             while ($ele = $stmt->fetch()) {

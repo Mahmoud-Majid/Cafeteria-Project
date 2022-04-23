@@ -27,6 +27,14 @@ body {
     font-weight: bold !important;
     border: none !important;
     outline: none !important;
+    background-color: #4489a3;
+    color: #fff !important;
+}
+
+.btn-log:hover{
+    color: #4489a3 !important;
+    border: 2px solid #4489a3 !important;
+    background-color: #fff !important;
 }
 
 .cont{

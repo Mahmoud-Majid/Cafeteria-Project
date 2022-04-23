@@ -54,7 +54,7 @@ if (isset($_GET['status'])) {
       <h1 class="text-center text-color">Cafe</h1>
       <form action="login_validation.php" method="post" enctype="multipart/form-data">
         <div class="form-group">
-          <label for="username" class="text-color text-size">Username</label>
+          <label for="username" class="text-color text-size title">Username</label>
           <input type="text" name="username" class="form-control" id="username" placeholder="Enter Username" value="<?php if (isset(($data)->username)) {
                                                                                                                       echo $data->username;
                                                                                                                     } ?>">
@@ -63,17 +63,17 @@ if (isset($_GET['status'])) {
                             } ?></p>
         </div>
         <div class="form-group">
-          <label for="password" class="text-color text-size">Password</label>
+          <label for="password" class="text-color text-size title">Password</label>
           <input type="password" name="password" class="form-control" id="password" placeholder="Enter Password">
           <p class="error"><?php if (isset($errors->password)) {
                               echo $errors->password;
                             } ?></p>
           <br>
           <div class="text-center">
-          <p class="text-center success"><?php if (isset(($status)->success))  echo $status->success; ?></p>
-            <button type="submit" class="btn btn-warning text-size text-color btn-log">Login</button>
+            <p class="text-center success"><?php if (isset(($status)->success))  echo $status->success; ?></p>
+            <button type="submit" class="btn text-size text-color btn-log">Login</button>
             <br><br>
-            <a href="forget_password.php" class="text-color">Forget your password? Reset it.</a>
+            <a href="forget_password.php" class="text-color title fw-bold ">Forget your password? Reset it.</a>
           </div>
       </form>
     </div>
