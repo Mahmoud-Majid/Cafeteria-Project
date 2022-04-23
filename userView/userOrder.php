@@ -20,11 +20,11 @@ if (isset($_GET['to'])) {
 
     $todate = $_GET['to'];
 }
-if($fromdate==NULL){
-    $fromdate='2022-04-01';
+if ($fromdate == NULL) {
+    $fromdate = '2022-04-01';
 }
-if($todate==NULL){
-    $todate='2022-04-30';
+if ($todate == NULL) {
+    $todate = '2022-04-30';
 }
 $user_id = $_SESSION['id'];
 ?>
@@ -43,6 +43,8 @@ $user_id = $_SESSION['id'];
 </head>
 
 <body>
+
+    <?php include('../navbars/user_header.php') ?>
     <div class="form-container">
         <form method="get" style="text-align: center">
             <label class="fw-bold"> From </label><i class="fa-solid fa-calendar-days cal"></i>
@@ -69,7 +71,7 @@ $user_id = $_SESSION['id'];
             ?>
                 <tr>
                     <td>
-                    <div class="accordion" id="accordionFlushExample1">
+                        <div class="accordion" id="accordionFlushExample1">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingOne">
                                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
@@ -95,30 +97,30 @@ $user_id = $_SESSION['id'];
                                     </div>
                                 </div>
                             </div>
-                        
+
                         </div>
                     </td>
                     <td> <?= $order->status ?></td>
                     <td> <?= $order->amount ?></td>
                     <?php
-                    if($order->status=="processing")
-                   echo" <td> 
+                    if ($order->status == "processing")
+                        echo " <td> 
                    <a href='deleteOrder.php?id=$order->order_id' class='btn btn-danger '>
                    cansel
                   </a>
                    </td>";
                     ?>
-                    
+
                 </tr>
-                <?php    } ?>
+            <?php    } ?>
         </table>
         <?php
-                      $total=null;
-                      foreach ($orders as  $order) {
-                          $total+= $order->amount;
-                      }
-                      echo "<p style='text-align: right; font-weight: bold;'> total price . $total</p>";
-                    ?>
+        $total = null;
+        foreach ($orders as  $order) {
+            $total += $order->amount;
+        }
+        echo "<p style='text-align: right; font-weight: bold;'> total price . $total</p>";
+        ?>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
@@ -145,7 +147,7 @@ class Order
         try {
             $opj = new Order();
             $db = $opj->connect();
-            $select_query="SELECT orders.order_id,orders.user_id,orders.date,orders.status,SUM(product.price*order_product.quantity) as amount 
+            $select_query = "SELECT orders.order_id,orders.user_id,orders.date,orders.status,SUM(product.price*order_product.quantity) as amount 
             from orders,order_product,product
              WHERE orders.order_id=order_product.order_id and
               order_product.product_id=product.product_id and
@@ -174,35 +176,33 @@ class Order
             $e->getMessage();
         }
     }
-    public function deleteOrder( $order_id)
+    public function deleteOrder($order_id)
     {
-        try{
+        try {
             $opj = new Order();
-            $db=$opj->connect();  
-            if( $db){
+            $db = $opj->connect();
+            if ($db) {
                 $delete_query = "DELETE FROM `orders` WHERE `order_id`= $order_id";
                 $del_stmt = $db->prepare($delete_query);
-                $res=$del_stmt->execute();
-            return $res;
+                $res = $del_stmt->execute();
+                return $res;
             }
-        
-        }catch (PDOException $e){
+        } catch (PDOException $e) {
             echo $e->getMessage();
         }
     }
-    public function deletefromProdactOrder( $order_id)
+    public function deletefromProdactOrder($order_id)
     {
-        try{
+        try {
             $opj = new Order();
-            $db=$opj->connect();  
-            if( $db){
+            $db = $opj->connect();
+            if ($db) {
                 $delete_query = "DELETE FROM `order_product` WHERE `order_id`= $order_id";
                 $del_stmt = $db->prepare($delete_query);
-                $res=$del_stmt->execute();
-            return $res;
+                $res = $del_stmt->execute();
+                return $res;
             }
-        
-        }catch (PDOException $e){
+        } catch (PDOException $e) {
             echo $e->getMessage();
         }
     }
