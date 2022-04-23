@@ -48,7 +48,7 @@
         }
 
         if(sizeof($errors)>0){
-            $status['fail'] = "Can't Update Password!";   ///m4 byb3at leeeh wenaby!!!!!
+            $status['fail'] = "Can't Update Password!";   
             $errors = json_encode($errors);
             $status = json_encode($status);
             header("Location:./forget_password.php?errors={$errors}&status={$status}");

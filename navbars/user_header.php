@@ -38,7 +38,6 @@ $username = $_SESSION['name'];
 
 <body>
     <div class="container-fluid px-0">
-        <!-- <nav class="navbar navbar-expand-sm navbar-warning navbar-fixed-top bg-black py-0 px-0"> <a class="navbar-brand" href="#"><img id="logo" src="../images/logo.png"> &nbsp;&nbsp;&nbsp;</a> <span class="v-line"></span> <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> -->
         <nav class="navbar navbar-expand-sm navbar-warning navbar-fixed-top nav-bg py-0 px-0"> <a class="navbar-brand nav-link" id="logo" href="#">Cafe &nbsp;&nbsp;&nbsp;</a> <span class="v-line"></span> <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">

@@ -157,7 +157,6 @@ class Order
             $stmt = $db->prepare($select_query);
             $res = $stmt->execute();
             $rows = $stmt->fetchAll(PDO::FETCH_OBJ);
-            //  var_dump($rows);
             return $rows;
         } catch (PDOException $e) {
             $e->getMessage();

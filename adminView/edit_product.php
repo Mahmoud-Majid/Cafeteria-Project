@@ -41,7 +41,7 @@ if (isset($_POST['update'])) {
     $fileExt = strtolower(end($ext));
 
     $err = array();
-    $extensions = ["png", "jpg", "md"];
+    $extensions = ["png", "jpg", "md", "jpeg", "png", "webp"];
 
     if (in_array($fileExt, $extensions) === false) {
         $err[] = "----------Extension is not Allawoed -----";
@@ -99,7 +99,6 @@ if (isset($_POST['update'])) {
                                 <input type="number" id="price" name="price" class="form-control" value="<?php echo $row['price']; ?>" placeholder="cost" min="0" autofocus>
                             </div>
 
-                            <!-- "<?php echo $row['category_id']; ?> -->
                             <div class="form-group">
                                 <label for="category">Category</label>
                                 <select class="form-control" id="category" name="category" value="<?php echo $row['category_id']; ?>">
