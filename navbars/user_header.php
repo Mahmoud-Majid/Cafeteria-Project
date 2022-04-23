@@ -18,11 +18,6 @@ $image = $_SESSION['profile_pic'];
 $username = $_SESSION['name'];
 
 
-// var_dump("../images/".$image);
-// exit;
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -43,14 +38,18 @@ $username = $_SESSION['name'];
 
 <body>
     <div class="container-fluid px-0">
-        <!-- <nav class="navbar navbar-expand-sm navbar-warning navbar-fixed-top bg-black py-0 px-0"> <a class="navbar-brand" href="#"><img id="logo" src="../images/logo.png"> &nbsp;&nbsp;&nbsp;</a> <span class="v-line"></span> <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button> -->
-        <nav class="navbar navbar-expand-sm navbar-warning navbar-fixed-top bg-black py-0 px-0"> <a class="navbar-brand nav-link" id="logo" href="#">Java Cafe &nbsp;&nbsp;&nbsp;</a> <span class="v-line"></span> <button class="navbar-toggler mr-3" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+        <nav class="navbar navbar-expand-sm navbar-warning navbar-fixed-top bg-black py-0 px-0"> <a
+                class="navbar-brand nav-link" id="logo" href="#">Java Cafe &nbsp;&nbsp;&nbsp;</a> <span
+                class="v-line"></span> <button class="navbar-toggler mr-3" type="button" data-toggle="collapse"
+                data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span> </button>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item active"> <a class="nav-link" href="../userView/home.php">Home</a> </li>
                     <li class="nav-item"> <a class="nav-link" href="../userView/userOrder.php">My Orders</a> </li>
                     <li class="nav-item  ml-auto"> <a class="nav-link" href="#"><?php echo $username ?></a> </li>
-                    <li class="nav-item"><?php echo '<img alt="user" class="avatar" src="../images/' . $image . '">'; ?></li>
+                    <li class="nav-item"><?php echo '<img alt="user" class="avatar" src="../images/' . $image . '">'; ?>
+                    </li>
                     <li class="nav-item "><a class="nav-link" href="../logout.php">Logout</a></li>
                 </ul>
             </div>

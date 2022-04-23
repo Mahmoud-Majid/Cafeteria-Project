@@ -15,21 +15,22 @@ if ($_SESSION['is_admin'] != 1) {
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Checks</title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
-	<link rel="stylesheet" href="../css/check.css" />
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checks</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <link rel="stylesheet" href="../css/check.css" />
 </head>
 
 <?php include('../navbars/admin_header.php') ?>
 
 <body>
 
-	<div class="form-container">
-		<?php
+    <div class="form-container">
+        <?php
 		$from = NULL;
 		$to = NULL;
 		$user_id = NULL;
@@ -56,16 +57,16 @@ if ($_SESSION['is_admin'] != 1) {
 
 		?>
 
-		<form method="get" action="checks.php" style="text-align: center">
-			<label class="fw-bold"> From </label><i class="fa-solid fa-calendar-days cal"></i>
-			<input type="date" name="from" />
-			<label class="fw-bold"> To </label><i class="fa-solid fa-calendar-days cal"></i>
-			<input type="date" name="to" />
-			</br></br></br>
-			<label class="fw-bold"> User </label><i class="fa-solid fa-user cal"></i>
-			<select name="user_id" class="sel-user">
-				<option value=""></option>
-				<?php
+        <form method="get" action="checks.php" style="text-align: center">
+            <label class="fw-bold"> From </label><i class="fa-solid fa-calendar-days cal"></i>
+            <input type="date" name="from" />
+            <label class="fw-bold"> To </label><i class="fa-solid fa-calendar-days cal"></i>
+            <input type="date" name="to" />
+            </br></br></br>
+            <label class="fw-bold"> User </label><i class="fa-solid fa-user cal"></i>
+            <select name="user_id" class="sel-user">
+                <option value=""></option>
+                <?php
 
 				foreach ($allUsers as $user) {
 
@@ -78,92 +79,106 @@ if ($_SESSION['is_admin'] != 1) {
 				}
 
 				?>
-			</select>
+            </select>
 
-			<button type="submit" class="form-btn">Search</button>
-		</form>
-	</div>
+            <button type="submit" class="form-btn">Search</button>
+        </form>
+    </div>
 
-	<div class="container tbl">
-		<table style="width: 100%">
-			<tr>
-				<th style="width: 70%; border-right: 1px solid #fff;">Client</th>
-				<th>Total Amount</th>
-			</tr>
-			<?php
+    <div class="container tbl">
+        <table style="width: 100%">
+            <tr>
+                <th style="width: 70%; border-right: 1px solid #fff;">Client</th>
+                <th>Total Amount</th>
+            </tr>
+            <?php
 			$users = select($from, $to, $user_id);
 			$i = 0;
 			foreach ($users as $user) {
 
 			?>
-				<tr>
-					<td>
-						<div class="accordion" id="accordionFlushExample">
+            <tr>
+                <td>
+                    <div class="accordion" id="accordionFlushExample">
 
 
-							<div class="accordion-item">
-								<h2 class="accordion-header" id="flush-headingOne">
-									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne<?= $i ?>" aria-expanded="false" aria-controls="flush-collapseOne" style="width: 300px; font-weight: bold; text-align:center">
-										<?= $user->username ?>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseOne<?= $i ?>" aria-expanded="false"
+                                    aria-controls="flush-collapseOne"
+                                    style="width: 300px; font-weight: bold; text-align:center">
+                                    <?= $user->username ?>
 
-									</button>
-								</h2>
-								<div id="flush-collapseOne<?= $i ?>" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-									<div class="accordion-body">
-										<div class="accordion" id="accordionFlushExample1">
-											<?php
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne<?= $i ?>" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <div class="accordion" id="accordionFlushExample1">
+                                        <?php
 											$orders = getUserOrders($user->user_id, $from, $to);
 											foreach ($orders as  $order) {
 											?>
-												<div class="accordion-item">
-													<h2 class="accordion-header" id="headingOne">
-														<button class="accordion-button collapsed" style="width: 100%;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne<?= $i ?>" aria-expanded="false" aria-controls="collapseOne">
-															<table style="width: 100%" class="tb-child">
-																<tr>
-																	<th style="border-right: 1px solid #fff;"> Order date </th>
-																	<th> Amount </th>
-																</tr>
-																<tr style="font-weight: bold; font-size:18px ; text-align:center">
-																	<td style=" font-size:16px ; "> <?= $order->date ?> </td>
-																	<td> <?= $order->total ?> EG</td>
-																</tr>
-															</table>
-														</button>
-													</h2>
-													<div id="collapseOne<?= $i ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionFlushExample1">
-														<div class="accordion-body d-flex" style="flex-wrap: wrap;">
-															<?php
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingOne">
+                                                <button class="accordion-button collapsed" style="width: 100%;"
+                                                    type="button" data-bs-toggle="collapse"
+                                                    data-bs-target="#collapseOne<?= $i ?>" aria-expanded="false"
+                                                    aria-controls="collapseOne">
+                                                    <table style="width: 100%" class="tb-child">
+                                                        <tr>
+                                                            <th style="border-right: 1px solid #fff;"> Order date </th>
+                                                            <th> Amount </th>
+                                                        </tr>
+                                                        <tr
+                                                            style="font-weight: bold; font-size:18px ; text-align:center">
+                                                            <td style=" font-size:16px ; "> <?= $order->date ?> </td>
+                                                            <td> <?= $order->total ?> EG</td>
+                                                        </tr>
+                                                    </table>
+                                                </button>
+                                            </h2>
+                                            <div id="collapseOne<?= $i ?>" class="accordion-collapse collapse"
+                                                aria-labelledby="headingOne" data-bs-parent="#accordionFlushExample1">
+                                                <div class="accordion-body d-flex" style="flex-wrap: wrap;">
+                                                    <?php
 															$products = getUserProducts($order->order_id);
 															foreach ($products as  $product) {
 															?>
-																<div class="card">
-																	<img src="<?= $product->pic ?>" class="card-img-top" alt="..." style="width:100% ; height:100px">
-																	<div class="card-body">
-																		<h5 class="card-title" style="font-weight: bold; text-align:center"><?= $product->name ?></h5>
-																		<hr />
-																		<h6>price: <?= $product->price ?> EG</h6>
-																		<h6>quantity: <?= $product->quantity ?></h6>
-																	</div>
-																</div>
-															<?php	} ?>
-														</div>
-													</div>
-												</div>
-											<?php	} ?>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</td>
-					<td style="font-weight: bold; font-size:18px ; text-align:center"> <?= $user->total ?> EG</td>
-				</tr>
+                                                    <div class="card">
+                                                        <img src="../images/<?= $product->pic ?>" class="card-img-top"
+                                                            alt="..." style="width:100% ; height:100px">
+                                                        <div class="card-body">
+                                                            <h5 class="card-title"
+                                                                style="font-weight: bold; text-align:center">
+                                                                <?= $product->name ?></h5>
+                                                            <hr />
+                                                            <h6>price: <?= $product->price ?> EG</h6>
+                                                            <h6>quantity: <?= $product->quantity ?></h6>
+                                                        </div>
+                                                    </div>
+                                                    <?php	} ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <?php	} ?>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td style="font-weight: bold; font-size:18px ; text-align:center"> <?= $user->total ?> EG</td>
+            </tr>
 
-			<?php $i++;
+            <?php $i++;
 			} ?>
-		</table>
-	</div>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
 </body>
 
 </html>
