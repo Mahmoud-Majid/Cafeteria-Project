@@ -35,7 +35,6 @@ $res = $stmt->fetchAll();
     <link rel="stylesheet" href="../css/admin_header.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!-- <link href="../css/orders.css" rel="stylesheet" type="text/css"> -->
     <link rel="stylesheet" href="../css/listProducts.css" />
 
 
@@ -100,12 +99,6 @@ $res = $stmt->fetchAll();
             </table>
         </div>
     </main>
-
-
-
-
-
-
 
     <script>
     function updateOrder(id, status, e) {

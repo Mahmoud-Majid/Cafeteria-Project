@@ -9,15 +9,12 @@ if (!isset($_SESSION['loggedin'])) {
     header('Location: ../login.php');
 }
 if ($_SESSION['is_admin'] != 1) {
-    die("Access Denied");     //????
+    die("Access Denied");
 }
 include('../navbars/admin_header.php');
 
 if (isset($_GET['errors'])) {
     $errors = json_decode($_GET['errors']);
-    // var_dump($errors);
-    // exit;
-
 }
 
 
@@ -54,10 +51,10 @@ if (isset($_GET['errors'])) {
             <div class="col-11 col-sm-9 col-md-7 col-lg-6 text-center p-0 mt-3 mb-2 ">
                 <div class="card px-0 pt-4 pb-0 mt-3 mb-3">
                     <h2><strong>Sign Up Customer Account</strong></h2>
-                    <p>Fill all form field to go to next step</p>
+                    <p>Fill all form fields to go to next step</p>
                     <div class="row">
                         <div class="col-md-12 mx-0">
-                            <!-- <form id=""> -->
+
                             <!-- fieldsets -->
                             <form class="msform" action="validateUser.php" method="post" enctype="multipart/form-data">
                                 <fieldset id="first-fieldset">
@@ -81,12 +78,10 @@ if (isset($_GET['errors'])) {
                                                                 echo $errors->confirmpass;
                                                             } ?></p>
                                     </div>
-                                    <!-- <input type="submit" name="submit" class="action-button submit" value="Submit" /> -->
-                                    <!-- <button type="submit" class="btn btn-warning">Submit</button> -->
+
                                     <input type="button" name="next" class="next action-button" value="Next Step" />
                                 </fieldset>
-                                <!-- </form> -->
-                                <!-- <form class="msform" action="validateUser.php" method="post" enctype="multipart/form-data"> -->
+
                                 <fieldset id="second-fieldset">
                                     <div class="form-card">
                                         <h2 class="fs-title">Personal Information</h2>
@@ -106,23 +101,8 @@ if (isset($_GET['errors'])) {
                                     </div>
                                     <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
                                     <input type="submit" name="submit" class=" action-button submit" value="Submit" />
-                                    <!-- <button type="submit" class="btn btn-warning">Submit</button> -->
                                 </fieldset>
                             </form>
-                            <!-- <fieldset>
-                                <div class="form-card">
-                                    <h2 class="fs-title text-center">Success !</h2> <br><br>
-                                    <div class="row justify-content-center">
-                                        <div class="col-3"> <img src="logo.png" class="fit-image"> </div>
-                                    </div> <br><br>
-                                    <div class="row justify-content-center">
-                                        <div class="col-7 text-center">
-                                            <h5>You Have Successfully Signed Up</h5>
-                                        </div>
-                                    </div>
-                                </div>
-                            </fieldset> -->
-                            <!-- </form>  -->
                         </div>
                     </div>
                 </div>

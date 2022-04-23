@@ -1,5 +1,4 @@
 <?php
-// session_start();
 
 $conn = mysqli_connect(
   '109.106.246.1',

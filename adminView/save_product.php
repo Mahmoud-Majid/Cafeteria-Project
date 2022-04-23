@@ -44,7 +44,7 @@ $filetmp_name = $_FILES['image']['tmp_name'];
 $filesize = $_FILES['image']['size'];
 $ext = explode(".", $_FILES['image']['name']);
 $fileExt = strtolower(end($ext));
-$extensions = ["png", "jpg", "md"];
+$extensions = ["png", "jpg", "md", "jpeg", "png", "webp"];
 if (empty($_FILES["image"]['name']) or $_FILES["image"]['name'] == "") {
   $errors["image"] = "please choose an image";
 } elseif (in_array($fileExt, $extensions) === false) {

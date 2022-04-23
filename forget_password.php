@@ -9,8 +9,6 @@
 	}
   if(isset($_GET['status'])){
 		$status = json_decode($_GET['status']);
-    // var_dump($status);
-    // exit;
 	}
 
 

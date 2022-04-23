@@ -12,15 +12,11 @@
 
     if (isset($_POST['submit'])) {
 
-        // if ($_POST['formType'] == 1) {
     
             $username = $_POST['username'];
             $email = $_POST['email'];
             $password = $_POST['password'];
             $confirm_password = $_POST['confirmpass'];
-
-            // var_dump($username, $email);
-            // exit;
             if (empty($username) or $username=="") {
                 $errors["username"] = "Name is required!";
             }else{
@@ -74,17 +70,7 @@
             }
             if($password != $confirm_password ){
                 $errors["confirmpass"] = "Not matched password!";
-            }
-
-            // if(sizeof($errors)>0){
-            //     $errors = json_encode($errors);
-            //     header("Location:./adduser.php?errors={$errors}");
-            //     exit;
-            // }
-
-        
-        // } else if ($_POST['formType'] == 2) {
-    
+            }    
             $room = $_POST['room'];
             $ext = $_POST['ext'];
             $image = $_FILES['image'];
@@ -121,9 +107,6 @@
         
             if (empty($ext ) or $ext=="") {
                 $errors["ext"] = "Ext. is required!";
-            // }elseif(!preg_match("/^01[0-9]{9}$/i", $ext)){
-            //     $errors["ext"] = "Invalid Ext.";
-            //  
                 }else{
                     try{
                         $select_query = "SELECT * FROM user where `ext`=:ext";

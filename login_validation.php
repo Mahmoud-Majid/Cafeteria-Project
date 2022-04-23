@@ -31,10 +31,6 @@ try {
         $user_hashed_password = $user->password;
     }
 
-    // if($username == $user_username && password_verify($password, $user_hashed_password)){
-    //     echo('hello in users pages!');
-    //     // header("Location:users.php");
-    // }
     if ($username != $user_username) {
         $errors["username"] = "Wrong username!";
     }
