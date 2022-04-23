@@ -24,13 +24,13 @@ h1 {
 
 .form-control,
 .custom-file-input {
-  width: 60%;
+  width: 59%;
   display: inline-block;
 }
 
 #category,
 #price {
-  width: 60%;
+  width: 59%;
 }
 label {
   width: 30%;

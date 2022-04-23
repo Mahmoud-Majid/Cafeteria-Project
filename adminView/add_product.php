@@ -94,7 +94,7 @@ if (isset($_GET["olddata"])) {
                         <div class=" form-group">
                             <div>
                                 <label for="inputGroupFile01">Choose image</label>
-                                <input type="file" name="image" aria-describedby="inputGroupFileAddon01">
+                                <input type="file" style="width: 55%;" name="image" aria-describedby="inputGroupFileAddon01">
                                 <?php
                                 if (isset($errors->image)) {
                                     echo "<p class='error' >$errors->image</p>";
