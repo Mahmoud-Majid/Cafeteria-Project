@@ -11,8 +11,7 @@ if ($_SESSION['is_admin'] == 1) {
 
 // default value for testing
 
-$_SESSION['id'] = 5;
-
+$user_id=$_SESSION['id'] ;
 ?>
 
 <!DOCTYPE html>
@@ -84,12 +83,12 @@ $_SESSION['id'] = 5;
                 name='search' id='search'>
              </div>";
 
-            echo "<div class='latest-order'>
-            <h5 class='mx-5 my-5'>Latest Order</h5>
-            <div class='all-items' style='display: flex;justify-content: space-evenly;'>";
+            echo "<div class='latest-order mx-5 my-5'>
+            <h5 class=''>Latest Order</h5>
+            <div class='all-items' style='display: flex;justify-content: flex-start;'>";
 
             while ($ele = $stmt->fetch()) {
-                echo ("<div class='order-item'>
+                echo ("<div class='order-item mr-3'>
                 <img class='item-img' src='../images/{$ele['pic']}'  />
                 <div>{$ele['name']}</div>
             </div>");
