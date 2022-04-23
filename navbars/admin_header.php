@@ -11,7 +11,7 @@
   <link rel="stylesheet" href="../css/admin_header.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.0.3/css/font-awesome.css">
-  <title>Java</title>
+  <title>Cafe</title>
 </head>
 
 <body>
