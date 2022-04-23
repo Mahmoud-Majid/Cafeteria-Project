@@ -32,7 +32,6 @@
 <body>
     <div class="alert alert-warning parent" style="width: 30%;">
         <h1 class="text-center text-color">Reset Password</h1>
-        <h3 class="text-center error"><?php if(isset(($status)->fail)) echo $status->fail; ?></h3>
         <form action="reset_password_validation.php" method="post" enctype="multipart/form-data">
             
             <div class="form-group">
