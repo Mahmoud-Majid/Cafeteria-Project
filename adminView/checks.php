@@ -33,7 +33,7 @@ if ($_SESSION['is_admin'] != 1) {
         <?php
 		$from = NULL;
 		$to = NULL;
-		$user_id = NULL;
+		$user_id  =  NULL;
 
 		if (isset($_GET['from'])) {
 
