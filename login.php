@@ -16,11 +16,11 @@ if (isset($_GET['errors'])) {
   $errors = json_decode($_GET['errors']);
 }
 
-if(isset($_GET['data'])){
+if (isset($_GET['data'])) {
   $data = json_decode($_GET['data']);
 }
 
-if(isset($_GET['status'])){
+if (isset($_GET['status'])) {
   $status = json_decode($_GET['status']);
 }
 
@@ -47,27 +47,36 @@ if(isset($_GET['status'])){
 </head>
 
 <body>
-  <div class="alert alert-warning parent" style="width: 30%;">
-    <h1 class="text-center"><img src="./images/logo.png" alt="logo" class="logo" width="100px" height="100px" /></h1>
-    <h1 class="text-center text-color">Java Cafe</h1>
-    <h3 class="text-center success"><?php if(isset(($status)->success))  echo $status->success; ?></h3>
-    <form action="login_validation.php" method="post" enctype="multipart/form-data">
-      <div class="form-group">
-        <label for="username" class="text-color text-size">Username</label>
-        <input type="text" name="username" class="form-control" id="username" placeholder="Enter Username" value="<?php if (isset(($data)->username)) {echo $data->username;} ?>">
-        <p class="error"><?php if (isset($errors->username)) {echo $errors->username;} ?></p>
-      </div>
-      <div class="form-group">
-        <label for="password" class="text-color text-size">Password</label>
-        <input type="password" name="password" class="form-control" id="password" placeholder="Enter Password">
-        <p class="error"><?php if (isset($errors->password)) {echo $errors->password;} ?></p>
-        <br>
-        <div class="text-center">
-          <button type="submit" class="btn btn-warning text-size text-color">Login</button>
-          <br><br>
-          <a href="forget_password.php" class="text-color">Forget your password? Reset it.</a>
+  <div class="overlay-bg"></div>
+  <div class="cont">
+    <div class="alert parent" style="width: 30%;">
+      <h1 class="text-center"><img src="./images/logo.png" alt="logo" class="logo" width="100px" height="100px" /></h1>
+      <h1 class="text-center text-color">Cafe</h1>
+      <h3 class="text-center success"><?php if (isset(($status)->success))  echo $status->success; ?></h3>
+      <form action="login_validation.php" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="username" class="text-color text-size">Username</label>
+          <input type="text" name="username" class="form-control" id="username" placeholder="Enter Username" value="<?php if (isset(($data)->username)) {
+                                                                                                                      echo $data->username;
+                                                                                                                    } ?>">
+          <p class="error"><?php if (isset($errors->username)) {
+                              echo $errors->username;
+                            } ?></p>
         </div>
-    </form>
+        <div class="form-group">
+          <label for="password" class="text-color text-size">Password</label>
+          <input type="password" name="password" class="form-control" id="password" placeholder="Enter Password">
+          <p class="error"><?php if (isset($errors->password)) {
+                              echo $errors->password;
+                            } ?></p>
+          <br>
+          <div class="text-center">
+            <button type="submit" class="btn btn-warning text-size text-color btn-log">Login</button>
+            <br><br>
+            <a href="forget_password.php" class="text-color">Forget your password? Reset it.</a>
+          </div>
+      </form>
+    </div>
   </div>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </body>
