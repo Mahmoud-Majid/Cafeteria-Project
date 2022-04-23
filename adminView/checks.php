@@ -56,7 +56,7 @@ if ($_SESSION['is_admin'] != 1) {
 
 		?>
 
-		<form method="get" action="" style="text-align: center">
+		<form method="get" action="checks.php" style="text-align: center">
 			<label class="fw-bold"> From </label><i class="fa-solid fa-calendar-days cal"></i>
 			<input type="date" name="from" />
 			<label class="fw-bold"> To </label><i class="fa-solid fa-calendar-days cal"></i>
