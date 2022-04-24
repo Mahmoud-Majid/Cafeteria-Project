@@ -68,7 +68,7 @@ $user_id = $_SESSION['id'];
         </form>
         <div class="product-list-addUser">
             <?php
-            include '../pdo.php';
+            include "../dbConnections/pdo.php";
             //latest order
             $user_id = $_SESSION['id'];
 

@@ -12,8 +12,7 @@ if ($_SESSION['is_admin'] != 1) {
 ?>
 
 <?php
-
-include '../pdo.php';
+ include "../dbConnections/pdo.php"; 
 
 //select user
 $query = "SELECT user_id,username FROM `user`";
