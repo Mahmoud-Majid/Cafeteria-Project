@@ -133,7 +133,8 @@ if ($_SESSION['is_admin'] != 1) {
 													<div id="collapseOne<?= $i ?>" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionFlushExample1">
 														<div class="accordion-body d-flex" style="flex-wrap: wrap;">
 															<?php
-															$products = getUserProducts($order->order_id);
+															$opj = new Order();
+															$products = $opj->selectProduct($order->order_id);
 															foreach ($products as  $product) {
 															?>
 																<div class="card">
@@ -336,11 +337,5 @@ function getUserOrders($user_id, $from, $to)
 	}
 }
 
-function getUserProducts($order_id)
-{
-	$opj = new Order();
-	$selectProduct = $opj->selectProduct($order_id);
-	return $selectProduct;
-}
 
 ?>
