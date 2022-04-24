@@ -3,7 +3,7 @@
 session_start();
 // If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
-    header('Location: ../login.php');
+    header('Location: ../login/login.php');
 }
 if ($_SESSION['is_admin'] != 1) {
     die("Access Denied");
@@ -107,7 +107,7 @@ if (isset($_POST['update'])) {
                             <div class="form-group ">
                                 <div>
                                     <label for="inputGroupFile01">Choose file</label>
-                                    <input type="file" name="file" class="upload" value="<?php echo $row['profile_pic']; ?>" aria-describedby="inputGroupFileAddon01">
+                                    <input type="file" name="file" class="upload" aria-describedby="inputGroupFileAddon01">
 
                                 </div>
                             </div>

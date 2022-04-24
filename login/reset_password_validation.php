@@ -4,7 +4,7 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
-    require "pdo.php";
+    require "../pdo.php";
 
     $errors = [];
     $status = [];
@@ -74,4 +74,3 @@
     }catch (PDOException $e) {
         echo 'Connection failed: ' . $e->getMessage();
     }
-?>

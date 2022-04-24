@@ -6,7 +6,7 @@ error_reporting(E_ALL);
 
 session_start();
 
-require "pdo.php";
+require "../pdo.php";
 
 $errors = [];
 $data = [];
@@ -52,9 +52,9 @@ try {
         $_SESSION['is_admin'] = $user->is_admin;
 
         if ($user->is_admin) {
-            header('Location: adminView/manualOrder.php');
+            header('Location: ../adminView/manualOrder.php');
         } else {        
-            header('Location: userView/home.php');
+            header('Location: ../userView/home.php');
         }
     }
 } catch (PDOException $e) {
