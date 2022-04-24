@@ -12,7 +12,7 @@ if ($_SESSION['is_admin'] != 1) {
 ?>
 
 <?php
-require '../pdo.php';
+include "../dbConnections/pdo.php"; 
 $sql = "SELECT order_id,date,status,username,room,ext FROM orders o,user u WHERE o.user_id = u.user_id and NOT o.status = 'done'";
 $stmt = $db->prepare($sql);
 $stmt->execute();

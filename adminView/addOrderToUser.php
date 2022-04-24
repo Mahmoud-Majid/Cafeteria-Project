@@ -17,7 +17,7 @@ if (empty($_POST['quantity'])) {
 
 $products = $_POST['quantity'];
 
-include '../pdo.php';
+ include "../dbConnections/pdo.php"; 
 
 //insert into orders table 
 

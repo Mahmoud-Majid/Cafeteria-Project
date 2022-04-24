@@ -13,7 +13,7 @@ if ($_SESSION['is_admin'] != 1) {
 
 <?php
 
-include("../mysqli.php");
+ include "../dbConnections/mysqli.php"; 
 
 
 if (isset($_GET['id'])) {

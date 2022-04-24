@@ -4,7 +4,7 @@
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
 
-    require "../pdo.php";
+    require "../dbConnections/pdo.php";
 
     $errors = [];
     $status = [];

@@ -13,7 +13,7 @@ if ($_SESSION['is_admin'] != 1) {
 ?>
 
 
-<?php include("../mysqli.php"); ?>
+<?php include "../dbConnections/mysqli.php"; ?>
 
 <link rel="stylesheet" href="../css/listProducts.css" />
 <link rel="stylesheet" href="https://bootswatch.com/4/yeti/bootstrap.min.css">
