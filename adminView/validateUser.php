@@ -29,7 +29,7 @@
                     $row = $select_stmt->fetchAll(PDO::FETCH_OBJ);
         
                     if(sizeof($row) != 0){
-                        $errors["username"] = "Username is already exists!";   
+                        $errors["username"] = "Username already exists!";   
                     }
             
                 }catch (PDOException $e) {

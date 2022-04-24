@@ -6,9 +6,9 @@ error_reporting(E_ALL);
 session_start();
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === TRUE) {
   if ($_SESSION['is_admin'] != 1) {
-    header("Location: userPages/home.php");
+    header("Location: ../userView/home.php");
   } else {
-    header("Location: adminView/manualOrder.php");
+    header("Location: ../adminView/manualOrder.php");
   }
 }
 
@@ -34,8 +34,8 @@ if (isset($_GET['status'])) {
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/main.css">
-  <link rel="stylesheet" href="css/form.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/form.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Niconne&display=swap" rel="stylesheet">
@@ -50,7 +50,7 @@ if (isset($_GET['status'])) {
   <div class="overlay-bg"></div>
   <div class="cont">
     <div class="alert parent" style="width: 30%;">
-      <h1 class="text-center"><img src="./images/logo.png" alt="logo" class="logo" width="100px" height="100px" /></h1>
+      <h1 class="text-center"><img src="../images/logo.png" alt="logo" class="logo" width="100px" height="100px" /></h1>
       <h1 class="text-center text-color">Cafe</h1>
       <form action="login_validation.php" method="post" enctype="multipart/form-data">
         <div class="form-group">
