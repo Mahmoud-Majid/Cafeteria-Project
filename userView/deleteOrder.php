@@ -1,6 +1,6 @@
 <?php
 ob_start();
-require "../dbConnections/pdo.php";
+require "./userOrder.php";
 if (!isset($_SESSION['loggedin'])) {
     header('Location: ../login/login.php');
 }
