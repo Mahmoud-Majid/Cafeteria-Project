@@ -27,7 +27,7 @@ run apache server . <br>
 `step 4` : <br>
 run the project at the same port apache server running <br> 
 `step 5` : <br>
-login with username:Omnia & password:123456789 to login to admin view you can add user account and login with it to user view
+login with username:Omnia & password:1234567890 to login to admin view you can add user account and login with it to user view
 
 ## Created by : 
 Nayra Elsalamony <br>
