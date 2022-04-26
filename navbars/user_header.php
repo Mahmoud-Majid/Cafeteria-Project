@@ -46,7 +46,7 @@ $username = $_SESSION['name'];
                     <li class="nav-item  ml-auto"> <a class="nav-link" href="#"><?php echo $username ?></a> </li>
                     <li class="nav-item"><?php echo '<img alt="user" class="avatar" src="../images/' . $image . '">'; ?>
                     </li>
-                    <li class="nav-item "><a class="nav-link" href="../logout.php">Logout</a></li>
+                    <li class="nav-item "><a class="nav-link" href="../login/logout.php">Logout</a></li>
                 </ul>
             </div>
         </nav>
