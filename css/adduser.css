@@ -1,8 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-  font-family: 'Niconne', cursive;
-
+    font-family: 'Niconne', cursive;
 }
 
 html {
@@ -17,7 +16,7 @@ html {
     margin-top: 20px
 }
 
-.msform  fieldset .form-card {
+.msform fieldset .form-card {
     background: white;
     border: 0 none;
     border-radius: 0px;
@@ -29,7 +28,7 @@ html {
     position: relative
 }
 
-.msform  fieldset {
+.msform fieldset {
     background: white;
     border: 0 none;
     border-radius: 0.5rem;
@@ -43,11 +42,11 @@ html {
 /* .msform  fieldset:not(:first-of-type) {
     display: none
 } */
-#second-fieldset{
-    display : none
+#second-fieldset {
+    display: none
 }
 
-.msform  fieldset .form-card {
+.msform fieldset .form-card {
     text-align: left;
     color: #9E9E9E
 }
@@ -154,7 +153,8 @@ select.list-dt:focus {
     color: #2C3E50;
     margin-bottom: 10px;
     font-weight: bold;
-    text-align: left
+    text-align: left;
+    font-family: 'Cairo', sans-serif;
 }
 
 /* #progressbar {
@@ -254,12 +254,12 @@ select.list-dt:focus {
     object-fit: cover
 }
 
-.parent{
+.parent {
     color: #4489a3;
     background-color: #effbff;
     height: 100vh;
 }
 
-.parent .card{
+.parent .card {
     box-shadow: 0 2.8px 2.2px rgb(0 0 0 / 5%), 0 6.7px 5.3px rgb(0 0 0 / 5%), 0 12.5px 10px rgb(0 0 0 / 5%), 0 22.3px 17.9px rgb(0 0 0 / 5%), 0 41.8px 33.4px rgb(0 0 0 / 5%), 0 100px 80px rgb(0 0 0 / 5%);
 }

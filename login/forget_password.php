@@ -25,6 +25,7 @@ if (isset($_GET['status'])) {
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Niconne&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../css/form.css">
   <link rel="stylesheet" href="../css/main.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -35,8 +36,8 @@ if (isset($_GET['status'])) {
   <div class="overlay-bg"></div>
   <div class="cont">
     <div class="alert parent" style="width: 30%;">
-      <h1 class="text-center text-color">Reset Password</h1>
-      <h3 class="text-center error"><?php if (isset(($status)->fail)) echo $status->fail; ?></h3>
+      <h1 class="text-center text-logo" style="margin-bottom:40px">Reset Password</h1>
+      <!-- <h3 class="text-center error"><?php if (isset(($status)->fail)) echo $status->fail; ?></h3> -->
       <form action="reset_password_validation.php" method="post" enctype="multipart/form-data">
 
         <div class="form-group">
@@ -47,21 +48,21 @@ if (isset($_GET['status'])) {
           <p class="error"><?php if (isset($errors->username)) {
                               echo $errors->username;
                             } ?></p>
-        </div>
+        </div><br />
         <div class="form-group">
           <label for="password" class="text-color text-size">Password</label>
           <input type="password" name="password" class="form-control" id="password" placeholder="Enter New Password">
           <p class="error"><?php if (isset($errors->password)) {
                               echo $errors->password;
                             } ?></p>
-        </div>
+        </div><br />
         <div class="form-group">
           <label for="confirmpass" class="text-color text-size">Confirm Password</label>
           <input type="password" name="confirmpass" class="form-control" id="confirmpass" placeholder="Confirm Password">
           <p class="error"><?php if (isset($errors->confirmpass)) {
                               echo $errors->confirmpass;
                             } ?></p>
-        </div>
+        </div><br />
         <div class="text-center">
           <button type="submit" class="btn text-size text-color btn-log">Reset</button>
           <br><br>
