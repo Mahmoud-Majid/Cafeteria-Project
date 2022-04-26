@@ -79,7 +79,7 @@ if (isset($_GET['status'])) {
                                         <p class="error"><?php if (isset($errors->username)) {
                                                                 echo $errors->username;
                                                             } ?></p>
-                                        <input type="email" name="email" placeholder="Email Id" value="<?php if (isset(($data)->email)) {
+                                        <input type="text" name="email" placeholder="Email Id" value="<?php if (isset(($data)->email)) {
                                                                                                             echo $data->email;
                                                                                                         } ?>" />
                                         <p class="error"><?php if (isset($errors->email)) {
@@ -108,7 +108,7 @@ if (isset($_GET['status'])) {
                                         <p class="error"><?php if (isset($errors->room)) {
                                                                 echo $errors->room;
                                                             } ?></p>
-                                        <input type="telephone" name="ext" placeholder="Contact No." value="<?php if (isset(($data)->ext)) {
+                                        <input type="number" name="ext" placeholder="Contact No." value="<?php if (isset(($data)->ext)) {
                                                                                                                 echo $data->ext;
                                                                                                             } ?>" />
                                         <p class="error"><?php if (isset($errors->ext)) {
