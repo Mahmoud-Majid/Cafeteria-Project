@@ -28,7 +28,7 @@
           <li class="nav-item"> <a class="nav-link" href="../adminView/checks.php">Checks</a> </li>
           <li class="nav-item ml-auto"> <a class="nav-link" href="#">Admin</a> </li>
           <li class="nav-item"><img src="../images/omnia.png" alt="admin" class="avatar" /></li>
-          <li class="nav-item "><a class="nav-link" href="../logout.php">Logout</a></li>
+          <li class="nav-item "><a class="nav-link" href="../login/logout.php">Logout</a></li>
         </ul>
       </div>
     </nav>
