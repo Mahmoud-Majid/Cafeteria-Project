@@ -20,13 +20,13 @@ specified date and can select specific user. <br>
 ## To run this project
 `step 1 : ` <br>
 You must have installed virtual server i.e XAMPP on your PC (for Windows). This System in PHP with source code is free to download . <br>
-`step 2` : <br>
+`step 2 : `  <br>
 Download the source code in the XAMPP htdocs folder in window. <br>
-`step 3` : <br>
+`step 3 : ` <br>
 run apache server . <br>
-`step 4` : <br>
+`step 4 : ` <br>
 run the project at the same port apache server running <br> 
-`step 5` : <br>
+`step 5 : ` <br>
 login with username:Omnia & password:1234567890 to login to admin view you can add user account and login with it to user view
 
 ## Created by : 
