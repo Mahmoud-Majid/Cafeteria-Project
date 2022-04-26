@@ -13,7 +13,7 @@ if ($_SESSION['is_admin'] != 1) {
 
 <?php
 
- include "../dbConnections/mysqli.php"; 
+include "../dbConnections/mysqli.php";
 
 
 if (isset($_GET['id'])) {
@@ -89,7 +89,7 @@ if (isset($_POST['update'])) {
                             </div>
 
                             <div class="form-group">
-                                <label for="name">User Name</label>
+                                <label for="name">Username</label>
                                 <input type="text" id="name" name="username" class="form-control" value="<?php echo $row['username']; ?>" placeholder="User Name" autofocus>
                             </div>
 

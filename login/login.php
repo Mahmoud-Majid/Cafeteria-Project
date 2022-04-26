@@ -40,6 +40,8 @@ if (isset($_GET['status'])) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Niconne&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
   <style>
 
   </style>
@@ -51,7 +53,7 @@ if (isset($_GET['status'])) {
   <div class="cont">
     <div class="alert parent" style="width: 30%;">
       <h1 class="text-center"><img src="../images/logo.png" alt="logo" class="logo" width="100px" height="100px" /></h1>
-      <h1 class="text-center text-color">Cafe</h1>
+      <h1 class="text-center text-logo">Cafe</h1>
       <form action="login_validation.php" method="post" enctype="multipart/form-data">
         <div class="form-group">
           <label for="username" class="text-color text-size title">Username</label>
@@ -61,7 +63,7 @@ if (isset($_GET['status'])) {
           <p class="error"><?php if (isset($errors->username)) {
                               echo $errors->username;
                             } ?></p>
-        </div>
+        </div><br />
         <div class="form-group">
           <label for="password" class="text-color text-size title">Password</label>
           <input type="password" name="password" class="form-control" id="password" placeholder="Enter Password">

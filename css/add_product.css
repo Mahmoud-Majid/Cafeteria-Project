@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 * {
   box-sizing: border-box;
 }
+
 body {
   font-family: roboto, sans-serif;
   margin: 0px;
@@ -15,6 +17,7 @@ h1 {
   font-weight: bold;
   font-size: 30px;
   margin-bottom: 40px;
+  font-family: 'Cairo', sans-serif;
 }
 
 .form-group {
@@ -31,6 +34,7 @@ h1 {
 #price {
   width: 59%;
 }
+
 label {
   width: 30%;
   color: #4489a3;

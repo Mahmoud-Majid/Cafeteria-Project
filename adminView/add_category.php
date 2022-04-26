@@ -32,8 +32,8 @@ if (isset($_GET["olddata"])) {
         <div class="row">
             <div class="col-md-3"></div>
             <div class="col-md-5">
-             
-             
+
+
                 <!-- ADD TASK FORM -->
 
                 <div class="card card-body ">
